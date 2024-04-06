@@ -1,0 +1,38 @@
+.product_card {
+    position: relative;
+    border-radius: 7px;
+    // height: 100%;
+    // width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .img_wrapper {
+        // display: flex;
+        // align-items: center;
+        // justify-content: center;
+        height: 80%;
+
+        & img {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px;
+        }
+    }
+
+    .like_btn {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        border: 0;
+        background: 0;
+    }
+
+    .add_cart_btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+}
