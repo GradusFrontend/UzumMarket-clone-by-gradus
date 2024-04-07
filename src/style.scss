@@ -1,5 +1,8 @@
 @use 'style-modules/header.scss';
 @use 'style-modules/product-card.scss';
+// @use 'media-modules/main-media.scss';
+
+$magenta-text-color: #3333CC;
 
 * {
     padding: 0;
@@ -84,4 +87,86 @@ img {
             column-gap: 25px;
         }
     }
+
+    .for_pc {
+        margin-top: 85px;
+
+        & h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .for_pc_grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            row-gap: 40px;
+            column-gap: 25px;
+        }
+    }
+
+    .furniture_section {
+        margin-top: 85px;
+
+        & h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .furniture_grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            row-gap: 40px;
+            column-gap: 25px;
+        }
+    }
+
+    .audio_section {
+        margin-top: 85px;
+
+        & h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .audio_grid {
+            margin-bottom: 85px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            row-gap: 40px;
+            column-gap: 25px;
+        }
+    }
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 15%;
+    backdrop-filter: blur(10px) brightness(0.7);
+}
+
+.hiden {
+    display: none;
+}
+
+@keyframes fadeHeightOpen {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: fit-content;
+    }
+}
+
+.active_catalog {
+    scale: 1.05;
+    background-color: $magenta-text-color;
+    color: #EAEAF9;
 }

@@ -2,26 +2,35 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
 new Swiper('.swiper', {
-    // Optional parameters
+ 
     direction: 'horizontal',
     loop: true,
     autoplay: {
         delay: 4000
     },
 
-    // If we need pagination
     pagination: {
         el: '.swiper-pagination',
     },
 
-    // Navigation arrows
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
 });
+
+const openCatalogBtn = document.querySelector('.catalog_btn') as HTMLButtonElement
+const catalog = document.querySelector('.catalog_body') as HTMLDivElement
+const backdrop = document.querySelector('.backdrop') as HTMLDivElement
+
+openCatalogBtn.onclick = () => {
+    if(!openCatalogBtn.classList.contains('active_catalog')) {
+        openCatalogBtn.classList.add('active_catalog')
+        backdrop.classList.remove('hiden')
+        catalog.classList.remove('hiden')
+    } else {
+        openCatalogBtn.classList.remove('active_catalog')
+        backdrop.classList.add('hiden')
+        catalog.classList.add('hiden')
+    }
+}

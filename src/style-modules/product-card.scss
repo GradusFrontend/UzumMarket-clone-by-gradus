@@ -1,38 +1,79 @@
+
 .product_card {
     position: relative;
-    border-radius: 7px;
-    // height: 100%;
-    // width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    border-radius: 10px;
+    transition: .25s ease;
+    cursor: pointer;
 
-    .img_wrapper {
-        // display: flex;
-        // align-items: center;
-        // justify-content: center;
-        height: 80%;
 
-        & img {
-            object-fit: cover;
-            object-position: center;
-            height: 100%;
+    .product_like_btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: 0;
+        border: 0;
+    }
+
+    .product_img {
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        border-radius: 10px;
+        // filter: brightness(0.85);
+    }
+
+    .product_info {
+        padding-inline: 7px;
+        padding-bottom: 10px;
+        margin-top: 10px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        height: max-content;
+        gap: 20px;
+        flex-direction: column;
+
+        .add_cart_btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+
+            background: 0;
+            padding: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #52525254;
+            border-radius: 50%;
+        }
+
+        .product_name {
+            // margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
             width: 100%;
-            border-radius: 10px;
+            // height: 100%;
+            color: #000;
+            height: 2lh;
+            overflow-y: scroll;
+        }
+
+        .product_name::-webkit-scrollbar {
+            display: none;
+        }
+
+        .product_price {
+            font-size: 15px;
+            font-weight: 500;
+            color: #000;
+
         }
     }
+}
 
-    .like_btn {
-        position: absolute;
-        top: 7px;
-        right: 7px;
-        border: 0;
-        background: 0;
-    }
-
-    .add_cart_btn {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-    }
+.product_card:hover {
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.217);
 }
