@@ -1,5 +1,132 @@
 @media (max-width: 1199.98px) {
-    body {
-        background-color: aqua;
+    // .wrap {
+    //     background-color: aqua;
+    // }
+
+    .header_action_btns {
+        gap: 0px !important;
+    }
+
+    .action_btn h4,
+    .action_btn span {
+        display: none;
+    }
+
+    .top_rated_grid,
+    .for_pc_grid,
+    .furniture_grid,
+    .audio_grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+@media (max-width: 959.98px) {
+    .main {
+        margin-top: 15px !important;
+    }
+
+    .header {
+        display: none;
+    }
+
+    .mobile_header {
+        display: flex;
+    }
+
+    .mobile_tabs {
+        display: block !important;
+    }
+
+    .top_rated_grid,
+    .for_pc_grid,
+    .furniture_grid,
+    .audio_grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .product_name,
+    .product_price {
+        font-size: 12px !important;
+    }
+
+    section {
+        & h1 {
+            font-size: 25px !important;
+        }
+    }
+
+    .swiper {
+        height: 320px !important;
+    }
+}
+
+@media (max-width: 719.98px) {
+    .swiper-slide {
+        padding: 0px 55px !important;
+
+        & h3 {
+            font-size: 20px !important;
+        }
+
+        & p {
+            font-size: 12px !important;
+            width: 340px !important;
+        }
+    }
+
+    .top_rated,
+    .furniture_section,
+    .audio_section,
+    .for_pc {
+        margin-top: 30px !important;
+    }
+}
+
+
+@media (max-width: 639.98px) {
+    .swiper {
+        height: 270px !important;
+    }
+
+    .top_rated_grid,
+    .for_pc_grid,
+    .furniture_grid,
+    .audio_grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 469.98px) {
+    .swiper {
+        height: 200px !important;
+    }
+
+    .swiper-slide {
+        padding: 0px 55px !important;
+        gap: 5px !important;
+
+        & h1 {
+            font-size: 16px !important;
+            font-weight: 500 !important;
+        }
+        & h3 {
+            font-size: 15px !important;
+        }
+
+        & p {
+            font-size: 9px !important;
+            width: 270px !important;
+        }
+    }
+
+    .tab {
+        & svg {
+            width: 25px !important;
+            height: 25px !important;
+        }
+
+        & h3 {
+            font-size: 12px !important;
+        }
     }
 }

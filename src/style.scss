@@ -1,6 +1,7 @@
 @use 'style-modules/header.scss';
 @use 'style-modules/product-card.scss';
-// @use 'media-modules/main-media.scss';
+@use 'media-modules/main-media.scss';
+@use 'style-modules/mobile-tabs.scss';
 
 $magenta-text-color: #3333CC;
 

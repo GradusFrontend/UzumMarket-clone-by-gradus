@@ -175,3 +175,96 @@ $magenta-text-color: #3333CC;
     background-color: $magenta-text-color !important;
     color: #EAEAF9 !important;
 }
+
+.mobile_header {
+    width: 100%;
+    margin-block: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    display: none;
+
+    .return {
+        background: 0;
+        border: 0;
+    }
+
+    .app_search_wrap {
+        width: 100%;
+        background-color: #edeff2;
+        padding: 0 18px;
+        border-radius: 8px;
+        display: flex;
+        gap: 10px;
+
+        & img {
+            scale: 1.3;
+        }
+
+        & input {
+            font-weight: 500;
+            font-size: 15px;
+            background: 0;
+            outline: 0;
+            border: 0;
+            padding-block: 8px;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .search_active_wrap {
+
+        z-index: 8;
+        background-color: #fff;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 50px;
+
+        .product_results_wrap,  .category_results_wrap{
+            width: 95%;
+            max-width: 1240px;
+            margin: 0 auto;
+
+            & h3 {
+                margin-block: 25px 15px;
+                color: #868686;
+                font-weight: 500;
+            }
+
+            .product_results, .category_results {
+                max-height: 200px;
+                overflow-y: scroll;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+
+                .product_res, .category_res {
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    padding-bottom: 5px;
+
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.285);
+
+                    .prod_res_name, .categ_res_name {
+                        color: #000;
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                }
+
+            }
+            .product_results::-webkit-scrollbar, .category_results::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        .category_results_wrap {
+            margin-top: 50px;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.mobile_tabs {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-block: 4px;
+    background-color: #fff;
+    border-top: 1px solid #0000008f;
+
+    .tabs {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .tab {
+            color: #a6a9b2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & svg {
+                width: 35px;
+                height: 35px;
+                margin-bottom: 5px;
+            }
+
+            & h3 {
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.active_tab { 
+    & svg path {
+        fill: #7000ff;
+    }
+    
+    & h3 {
+        color: #7000ff;
+    }
+}
