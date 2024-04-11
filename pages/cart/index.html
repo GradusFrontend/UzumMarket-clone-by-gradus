@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzum Market - Корзина</title>
+    <link rel="stylesheet" href="/public/fonts/Gilroy/stylesheet.css">
+    <link rel="stylesheet" href="./style.scss">
+</head>
+<body>
+
+    <div class="backdrop hiden"></div>
+
+    <div class="wrap">
+        <header class="header">
+            <a href="/" class="logo_btn">
+                <img src="/public/icons/uzum-logo.svg" alt="">
+            </a>
+
+            <button class="catalog_btn">Каталог</button>
+
+            <div class="search_box">
+                <input placeholder="Искать товары" type="text" name="query" id="search_inp">
+                <button class="search_btn"><img src="/public/icons/search_icon.svg" alt=""></button>
+            </div>
+
+            <div class="header_action_btns">
+                <a href="#" class="action_btn profile_btn">
+                    <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 3C9.79086 3 8 4.79086 8 7V8C8 10.2091 9.79086 12 12 12C14.2091 12 16 10.2091 16 8V7C16 4.79086 14.2091 3 12 3ZM9.5 7C9.5 5.61929 10.6193 4.5 12 4.5C13.3807 4.5 14.5 5.61929 14.5 7V8C14.5 9.38071 13.3807 10.5 12 10.5C10.6193 10.5 9.5 9.38071 9.5 8V7ZM5.50232 19.3686C5.97321 16.2577 9.01803 14.5 12.0022 14.5C14.9858 14.5 18.031 16.2577 18.5019 19.3686C18.5046 19.3866 18.5025 19.3972 18.5 19.4048C18.497 19.4137 18.4903 19.4269 18.4759 19.442C18.4453 19.4741 18.3894 19.5039 18.3171 19.5039H5.68718C5.61487 19.5039 5.55898 19.4741 5.52838 19.442C5.51394 19.4269 5.50726 19.4137 5.50427 19.4048C5.50174 19.3972 5.49961 19.3865 5.50232 19.3686ZM12.0022 13C8.57321 13 4.64037 15.0404 4.01922 19.1441C3.85624 20.2208 4.75727 21.0039 5.68718 21.0039H18.3171C19.247 21.0039 20.148 20.2208 19.985 19.1441C19.3638 15.0404 15.4306 13 12.0022 13Z"
+                            fill="black"></path>
+                    </svg>
+                    <h4 class="user_name">Gradus</h4>
+                </a>
+
+                <a href="#" class="action_btn wishes_btn">
+                    <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M7.5 5.5C5.26935 5.5 3.5 7.30906 3.5 9.5C3.5 10.4282 3.87684 11.4436 4.5487 12.5105C5.21692 13.5716 6.14148 14.6274 7.15127 15.6219C8.55769 17.007 10.0318 18.1879 11.1708 19.1003C11.4734 19.3427 11.7523 19.5661 12 19.7694C12.2477 19.5661 12.5266 19.3427 12.8292 19.1003C13.9682 18.1879 15.4423 17.007 16.8487 15.6219C17.8585 14.6274 18.7831 13.5716 19.4513 12.5105C20.1232 11.4436 20.5 10.4282 20.5 9.5C20.5 7.30898 18.7314 5.5 16.5 5.5C14.3473 5.5 13.0738 7.20226 12.7262 7.74742C12.3889 8.27655 11.6111 8.27653 11.2738 7.74742C10.9262 7.20225 9.65273 5.5 7.5 5.5ZM2 9.5C2 6.49094 4.43065 4 7.5 4C9.73143 4 11.2249 5.30207 12 6.21581C12.7751 5.30207 14.2686 4 16.5 4C19.5702 4 22 6.49102 22 9.5C22 10.8218 21.4706 12.1189 20.7206 13.3098C19.9669 14.5066 18.954 15.6539 17.9013 16.6906C16.4429 18.1269 14.808 19.4384 13.6502 20.3672C13.1649 20.7565 12.7634 21.0786 12.4939 21.3144C12.2111 21.5619 11.7889 21.5619 11.5061 21.3144C11.2366 21.0786 10.8351 20.7565 10.3498 20.3672C9.19201 19.4384 7.55712 18.1269 6.09873 16.6906C5.04602 15.6539 4.03308 14.5066 3.27942 13.3098C2.52941 12.1189 2 10.8218 2 9.5Z"
+                            fill="#141415"></path>
+                    </svg>
+                    <h4>Избранное</h4>
+                    <span class="action_btn_count wishes_count">4</span>
+                </a>
+
+                <a href="#" class="action_btn cart_btn">
+                    <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="black"
+                        xmlns="http://www.w3.org/2000/svg" class="ui-icon  slightly transparent icon-cart">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M9 6.5C9 4.88779 10.2402 3.5 12 3.5C13.7598 3.5 15 4.88779 15 6.5V7.5H9V6.5ZM7.5 9V11.5H9V9H15V11.5H16.5V9H18.5V19.75C18.5 20.1642 18.1642 20.5 17.75 20.5H6.25C5.83579 20.5 5.5 20.1642 5.5 19.75V9H7.5ZM7.5 7.5V6.5C7.5 4.11221 9.35984 2 12 2C14.6402 2 16.5 4.11221 16.5 6.5V7.5H19.25H20V8.25V19.75C20 20.9926 18.9926 22 17.75 22H6.25C5.00736 22 4 20.9926 4 19.75V8.25V7.5H4.75H7.5Z">
+                        </path>
+                    </svg>
+                    <h4>Корзина</h4>
+                    <span class="action_btn_count cart_count">6</span>
+                </a>
+
+            </div>
+
+            <div class="catalog_body hiden">
+                <div class="catalog_wrap">
+                    <h3>Категории товаров</h3>
+                    <div class="catalog">
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                        <a href="#" class="category_link">
+                            Все для компьютера
+                            <span>товаров 32</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="mobile_header">
+            <button class="return hiden">
+                <svg data-v-1b1e6dd2="" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="ui-icon  return-icon">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M15.8106 20.4983C16.0857 20.1887 16.0579 19.7146 15.7483 19.4394L7.8789 12L15.7483 4.56055C16.0579 4.28536 16.0857 3.81131 15.8106 3.50172C15.5354 3.19213 15.0613 3.16425 14.7517 3.43944L6.25173 11.4394C6.09161 11.5818 6 11.7858 6 12C6 12.2142 6.09161 12.4182 6.25173 12.5605L14.7517 20.5605C15.0613 20.8357 15.5354 20.8079 15.8106 20.4983Z"
+                        fill="black"></path>
+                </svg>
+            </button>
+            <div class="app_search_wrap">
+                <img src="/public/icons/search_icon.svg" alt="">
+                <input placeholder="Искать товары и категории" type="text" name="query" id="app_query">
+            </div>
+
+            <div class="search_active_wrap hiden">
+                <div class="product_results_wrap">
+                    <h3>Товары</h3>
+
+                    <div class="product_results">
+                        <a href="#" class="product_res">
+                            <img src="/public/icons/search_icon.svg" alt="">
+                            <h4 class="prod_res_name">Ivan Zolo 2004</h4>
+                        </a>
+                        <a href="#" class="product_res">
+                            <img src="/public/icons/search_icon.svg" alt="">
+                            <h4 class="prod_res_name">Ivan Zolo 2004</h4>
+                        </a>
+                        <a href="#" class="product_res">
+                            <img src="/public/icons/search_icon.svg" alt="">
+                            <h4 class="prod_res_name">Ivan Zolo 2004</h4>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="category_results_wrap">
+                    <h3>Категории</h3>
+
+                    <div class="category_results">
+                        <a href="#" class="category_res">
+                            <img src="/public/icons/search_icon.svg" alt="">
+                            <h4 class="categ_res_name">Ivan Zolo 2004</h4>
+                        </a>
+                        <a href="#" class="category_res">
+                            <img src="/public/icons/search_icon.svg" alt="">
+                            <h4 class="categ_res_name">Ivan Zolo 2004</h4>
+                        </a>
+                        <a href="#" class="category_res">
+                            <img src="/public/icons/search_icon.svg" alt="">
+                            <h4 class="categ_res_name">Ivan Zolo 2004</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mobile_tabs">
+        <div class="cart_sum">
+            <h3 class="mobile_order_total">1 650 000 сум</h3>
+            <button class="mobile_make_order_btn">Оформить</button>
+        </div>
+        <div class="tabs">
+            <a href="#" class="tab main_tab active_tab">
+                <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                    <g id="Icon">
+                        <g id="Icon_2">
+                            <path
+                                d="M14.5001 7.54553C14.1116 7.54553 13.7296 7.562 13.351 7.59492L13.3444 12.9357H15.6493V7.59492C15.2706 7.54553 14.8887 7.54553 14.5001 7.54553Z"
+                                fill="#8B8E99"></path>
+                            <path
+                                d="M19.0543 19.1165C20.2621 17.9087 20.9407 16.2705 20.9407 14.5623V10.7065C20.1054 10.4275 19.2516 10.2075 18.3855 10.048V14.5393C18.3855 17.7694 17.0158 19.4586 14.5001 19.4586C11.9845 19.4586 10.618 17.7694 10.618 14.5393V10.048C9.75095 10.2079 8.89607 10.4279 8.05957 10.7065V14.5623C8.05957 16.2705 8.73813 17.9087 9.94597 19.1165C11.1538 20.3243 12.792 21.0029 14.5001 21.0029C16.2083 21.0029 17.8465 20.3243 19.0543 19.1165Z"
+                                fill="#8B8E99"></path>
+                            <path
+                                d="M14.5 2C7.87258 2 2.5 7.37258 2.5 14C2.5 20.6274 7.87258 26 14.5 26C21.1274 26 26.5 20.6274 26.5 14C26.5 7.37258 21.1274 2 14.5 2ZM4 14C4 8.20101 8.70101 3.5 14.5 3.5C20.299 3.5 25 8.20101 25 14C25 19.799 20.299 24.5 14.5 24.5C8.70101 24.5 4 19.799 4 14Z"
+                                fill="#8B8E99"></path>
+                        </g>
+                    </g>
+                </svg>
+                <h3>Главная</h3>
+            </a>
+
+            <a href="#" class="tab catalog_tab">
+                <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                    <g id="Icon">
+                        <g id="Icon_2">
+                            <path
+                                d="M1.5 12.5C1.5 7.25329 5.75329 3 11 3C16.2467 3 20.5 7.25329 20.5 12.5C20.5 14.853 19.6445 17.0062 18.2276 18.6656L24.2795 24.6993C24.5728 24.9917 24.5735 25.4666 24.2811 25.7599C23.9886 26.0532 23.5138 26.054 23.2204 25.7615L17.1671 19.7264C15.5075 21.144 13.3537 22 11 22C5.75329 22 1.5 17.7467 1.5 12.5ZM11 4.5C6.58172 4.5 3 8.08172 3 12.5C3 16.9183 6.58172 20.5 11 20.5C15.4183 20.5 19 16.9183 19 12.5C19 8.08172 15.4183 4.5 11 4.5Z"
+                                fill="#8B8E99"></path>
+                            <path
+                                d="M22.75 6.00003C22.3358 6.00003 22 6.33582 22 6.75003C22 7.16424 22.3358 7.50003 22.75 7.50003H26.75C27.1642 7.50003 27.5 7.16424 27.5 6.75003C27.5 6.33582 27.1642 6.00003 26.75 6.00003H22.75Z"
+                                fill="#8B8E99"></path>
+                            <path
+                                d="M22.75 11.75C22.3358 11.75 22 12.0858 22 12.5C22 12.9142 22.3358 13.25 22.75 13.25H26.75C27.1642 13.25 27.5 12.9142 27.5 12.5C27.5 12.0858 27.1642 11.75 26.75 11.75H22.75Z"
+                                fill="#8B8E99"></path>
+                            <path
+                                d="M22.75 17.5C22.3358 17.5 22 17.8358 22 18.25C22 18.6642 22.3358 19 22.75 19H26.75C27.1642 19 27.5 18.6642 27.5 18.25C27.5 17.8358 27.1642 17.5 26.75 17.5H22.75Z"
+                                fill="#8B8E99"></path>
+                        </g>
+                    </g>
+                </svg>
+                <h3>Каталог</h3>
+            </a>
+
+            <a href="#" class="tab cart_tab">
+                <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                    <g id="Icon">
+                        <path id="Icon_2"
+                            d="M9.5 7C9.5 4.5444 11.4295 2 14.5 2C17.5705 2 19.5 4.54439 19.5 7H24V22.25C24 24.3211 22.3211 26 20.25 26H8.75C6.67893 26 5 24.3211 5 22.25V7H9.5ZM11 7H18C18 5.25561 16.6295 3.5 14.5 3.5C12.3705 3.5 11 5.2556 11 7ZM9.5 8.5H6.5V22.25C6.5 23.4926 7.50736 24.5 8.75 24.5H20.25C21.4926 24.5 22.5 23.4926 22.5 22.25V8.5H19.5V11.5H18V8.5H11V11.5H9.5V8.5Z"
+                            fill="#8B8E99"></path>
+                    </g>
+                </svg>
+                <h3>Корзина</h3>
+            </a>
+
+            <a href="#" class="tab wishes_tab">
+                <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                    <g id="Icon">
+                        <path id="Icon_2"
+                            d="M9.02703 4C5.38324 4 2.5 6.96273 2.5 10.5391C2.5 16 9.99615 21.5 14.0055 24.8139C14.2885 25.062 14.7115 25.062 14.9945 24.8139C19 21.5 26.5 16 26.5 10.5391C26.5 6.96281 23.6178 4 19.973 4C17.2008 4 15.3841 5.6987 14.5 6.79192C13.6159 5.6987 11.7992 4 9.02703 4ZM4 10.5391C4 7.7779 6.22487 5.5 9.02703 5.5C11.7441 5.5 13.3368 7.65762 13.7573 8.32095C14.1013 8.86359 14.8987 8.86359 15.2427 8.32095C15.6632 7.65762 17.2559 5.5 19.973 5.5C22.776 5.5 25 7.77781 25 10.5391C25 15.1 18 20.5 14.5 23.2667C11 20.5 4 15.1 4 10.5391Z"
+                            fill="#8B8E99"></path>
+                    </g>
+                </svg>
+                <h3>Избранное</h3>
+            </a>
+
+            <a href="#" class="tab profile_tab">
+                <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
+                    <g id="Icon">
+                        <g id="Icon_2">
+                            <path
+                                d="M14.5 3C11.4624 3 9 5.46243 9 8.5C9 11.5376 11.4624 14 14.5 14C17.5376 14 20 11.5376 20 8.5C20 5.46243 17.5376 3 14.5 3ZM10.5 8.5C10.5 6.29086 12.2909 4.5 14.5 4.5C16.7091 4.5 18.5 6.29086 18.5 8.5C18.5 10.7091 16.7091 12.5 14.5 12.5C12.2909 12.5 10.5 10.7091 10.5 8.5Z"
+                                fill="#8B8E99"></path>
+                            <path
+                                d="M14.5025 15C9.16883 15 4.5 19.0011 4.5 24C4.5 25.1046 5.39543 26 6.5 26H22.5C23.6046 26 24.5 25.1046 24.5 24C24.5 19.0057 19.8369 15 14.5025 15ZM6 24C6 19.9911 9.82583 16.5 14.5025 16.5C19.1783 16.5 23 19.9943 23 24C23 24.2761 22.7761 24.5 22.5 24.5H6.5C6.22386 24.5 6 24.2761 6 24Z"
+                                fill="#8B8E99"></path>
+                        </g>
+                    </g>
+                </svg>
+                <h3>Кабинет</h3>
+            </a>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="cart_section">
+            <h1>Корзина товаров</h1>
+
+            <div class="cart_wrap">
+                <div class="cart">
+                    <div class="cart_item">
+                        <div class="cart_img_wrap">
+                            <img src="/public/images/test_moni-1300.jpg" alt="">
+                        </div>
+                        <div class="cart_item_info">
+                            <h3 class="cart_item_name">Cтиральный порошок Tide, Color Lenor Touch, автомат, 3 кг</h3>
+                            <h4 class="cart_item_price">40 400 сум</h4>
+                            <div class="cart_item_counter">
+                                <button class="decrease_btn">-</button>
+                                <span class="cart_item_count">1</span>
+                                <button class="increase_btn">+</button>
+                            </div>
+                            <button class="cart_item_delete">Удалить</button>
+                        </div>
+                    </div>
+                    <div class="cart_item">
+                        <div class="cart_img_wrap">
+                            <img src="/public/images/tesst-moni-600.jpg" alt="">
+                        </div>
+                        <div class="cart_item_info">
+                            <h3 class="cart_item_name">Cтиральный порошок Tide, Color Lenor Touch, автомат, 3 кг</h3>
+                            <h4 class="cart_item_price">40 400 сум</h4>
+                            <div class="cart_item_counter">
+                                <button class="decrease_btn">-</button>
+                                <span class="cart_item_count">1</span>
+                                <button class="increase_btn">+</button>
+                            </div>
+                            <button class="cart_item_delete">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout_order">
+                    <h2 class="checkout_total_price">1 650 000 сум</h2>
+                    <h4 class="cart_length">Итого товаров: <span class="cart_length_span">3</span></h4>
+                    <h4 class="total_discount">Итого скидки: <span class="total_discount_span">250 000 сум</span></h4>
+                    <button class="checkout_order_btn">Оформить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.ts"></script>
+</body>
+</html>

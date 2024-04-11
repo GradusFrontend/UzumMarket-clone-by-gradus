@@ -1,0 +1,24 @@
+@media (max-width: 1199.98px) {
+    // .wrap {
+    //     background-color: aqua;
+    // }
+
+    .header_action_btns {
+        gap: 0px !important;
+    }
+
+    .action_btn h4,
+    .action_btn span {
+        display: none;
+    }
+}
+
+@media (max-width: 1049.98px) {
+    .cart_wrap {
+        flex-direction: column;
+        
+        .checkout_order {
+            display: none;
+        }
+    }
+}

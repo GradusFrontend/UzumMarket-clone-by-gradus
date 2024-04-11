@@ -5,14 +5,17 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding-block: 4px;
+    padding-bottom: 4px;
     background-color: #fff;
     border-top: 1px solid #0000008f;
 
     .tabs {
+        padding-top: 5px;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        border-top: 1px solid #0000008f;
+
 
         .tab {
             color: #a6a9b2;
@@ -35,11 +38,11 @@
     }
 }
 
-.active_tab { 
+.active_tab {
     & svg path {
         fill: #7000ff;
     }
-    
+
     & h3 {
         color: #7000ff;
     }

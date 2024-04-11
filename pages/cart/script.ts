@@ -1,5 +1,4 @@
-import Swiper from 'swiper/bundle';
-import 'swiper/css/bundle';
+
 
 const openCatalogBtn = document.querySelector('.catalog_btn') as HTMLButtonElement
 const catalog = document.querySelector('.catalog_body') as HTMLDivElement
@@ -16,26 +15,6 @@ openCatalogBtn.onclick = () => {
         catalog.classList.add('hiden')
     }
 }
-
-
-new Swiper('.product_swiper', {
- 
-    direction: 'horizontal',
-    loop: true,
-    // autoplay: {
-    //     delay: 4000
-    // },
-
-    pagination: {
-        el: '.swiper-pagination',
-    },
-
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
-
 
 const body = document.body as HTMLBodyElement
 const appSearchInp = document.querySelector('#app_query') as HTMLInputElement
@@ -56,4 +35,3 @@ return_btn.onclick = () => {
     body.style.height = '100%'
     body.style.overflowY = 'visible'
 }
-
