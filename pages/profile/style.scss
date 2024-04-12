@@ -1,0 +1,57 @@
+@use '/src/style-modules/header.scss';
+@use '/src/style-modules/mobile-tabs.scss';
+
+$magenta-text-color: #3333CC;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Gilroy';
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.backdrop {
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 15%;
+    backdrop-filter: blur(10px) brightness(0.7);
+}
+
+.hiden {
+    display: none;
+}
+
+@keyframes fadeHeightOpen {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: fit-content;
+    }
+}
+
+
+.active_catalog {
+    scale: 1.05;
+    background-color: $magenta-text-color;
+    color: #EAEAF9;
+}

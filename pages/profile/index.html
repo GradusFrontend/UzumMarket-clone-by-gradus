@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uzum Market - Корзина</title>
+    <title>Uzum Market - Личный Кабинет</title>
     <link rel="stylesheet" href="/public/fonts/Gilroy/stylesheet.css">
     <link rel="stylesheet" href="./style.scss">
 </head>
@@ -11,6 +11,7 @@
 
     <div class="backdrop hiden"></div>
 
+    
     <div class="wrap">
         <header class="header">
             <a href="/" class="logo_btn">
@@ -158,10 +159,6 @@
     </div>
 
     <div class="mobile_tabs">
-        <div class="cart_sum">
-            <h3 class="mobile_order_total">1 650 000 сум</h3>
-            <button class="mobile_make_order_btn">Оформить</button>
-        </div>
         <div class="tabs">
             <a href="#" class="tab main_tab active_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
@@ -250,57 +247,67 @@
     </div>
 
     <div class="wrap">
-        <div class="cart_section">
-            <h1>Корзина товаров</h1>
-
-            <div class="cart_wrap">
-                <div class="cart">
-                    <div class="cart_item">
-                        <div class="cart_img_wrap">
-                            <img src="/public/images/test_moni-1300.jpg" alt="">
+        <section class="user_section">
+            <div class="user_title">
+                <h2>Gradus</h2>
+                <button>Изменить данные</button>
+            </div>
+    
+            <div class="orders">
+                <div class="order">
+                    <div class="id_box">
+                        <h3>ID заказа <span class="order_id_span">f32bjh</span></h3>
+                    </div>
+                    <div class="order_info">
+                        <div class="order_row">
+                            <h4>Дата заказа:</h4>
+                            <h5>воскресенье, 28 января 2024 г. в 17:38</h5>
                         </div>
-                        <div class="cart_item_info">
-                            <h3 class="cart_item_name">Cтиральный порошок Tide, Color Lenor Touch, автомат, 3 кг</h3>
-                            <h4 class="cart_item_price">40 400 сум</h4>
-                            <div class="cart_item_counter">
-                                <button class="decrease_btn">-</button>
-                                <span class="cart_item_count">1</span>
-                                <button class="increase_btn">+</button>
-                            </div>
-                            <button class="cart_item_delete">Удалить</button>
+
+                        <div class="order_row">
+                            <h4>Количество товаров:</h4>
+                            <h5>4</h5>
+                        </div>
+
+                        <div class="order_row">
+                            <h4>Сумма заказа:</h4>
+                            <h4>1 650 000 сум</h4>
                         </div>
                     </div>
-                    <div class="cart_item">
-                        <div class="cart_img_wrap">
-                            <img src="/public/images/tesst-moni-600.jpg" alt="">
+
+                    <div class="order_accordeon">
+                        <div class="accord_title">
+                            <h3>Товаров: <span class="accrod_prod_count">3</span></h3>
+                            <button class="open_accord_btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="#1f2026" xmlns="http://www.w3.org/2000/svg" class="ui-icon  noselect"><path d="M12 16C12.3107 15.9911 12.5948 15.8748 12.8257 15.6243L18.4481 9.8071C18.6435 9.61029 18.75 9.3598 18.75 9.06458C18.75 8.47414 18.2883 8 17.7024 8C17.4183 8 17.143 8.1163 16.9388 8.32206L12.0089 13.4504L7.06116 8.32206C6.85696 8.12524 6.59061 8 6.29763 8C5.71167 8 5.25 8.47414 5.25 9.06458C5.25 9.3598 5.35654 9.61029 5.55186 9.8071L11.1832 15.6243C11.4229 15.8748 11.6893 16 12 16Z"></path></svg></button>
                         </div>
-                        <div class="cart_item_info">
-                            <h3 class="cart_item_name">Cтиральный порошок Tide, Color Lenor Touch, автомат, 3 кг</h3>
-                            <h4 class="cart_item_price">40 400 сум</h4>
-                            <div class="cart_item_counter">
-                                <button class="decrease_btn">-</button>
-                                <span class="cart_item_count">1</span>
-                                <button class="increase_btn">+</button>
+                        <div class="accordeon">
+                            <div class="order_item">
+                                <div class="image_wrap">
+                                    <img src="/public/images/tesst-moni-600.jpg" alt="">
+                                </div>
+
+                                <div class="order_item_info">
+                                    <div class="order_item_row">
+                                        <h4>Наименование:</h4>
+                                        <h5>Ivan Zolo 2004 Cyborg Killer Machine New Fag</h5>
+                                    </div>
+            
+                                    <div class="order_item_row">
+                                        <h4>Количество:</h4>
+                                        <h5>4</h5>
+                                    </div>
+            
+                                    <div class="order_item_row">
+                                        <h4>Стоимость:</h4>
+                                        <h4>1 650 000 сум</h4>
+                                    </div>
+                                </div>
                             </div>
-                            <button class="cart_item_delete">Удалить</button>
                         </div>
                     </div>
-                </div>
-
-                <div class="checkout_order">
-                    <h2 class="checkout_total_price">1 650 000 сум</h2>
-                    <h4 class="cart_length">Итого товаров: <span class="cart_length_span">3</span></h4>
-                    <h4 class="total_discount">Итого скидки: <span class="total_discount_span">250 000 сум</span></h4>
-                    <button class="checkout_order_btn">Оформить</button>
                 </div>
             </div>
-        </div>
-
-        <div class="empty_cart hiden">
-            <img src="/public/images/shopocat.png" alt="">
-            <h3>В корзине пока нет товаров</h3>
-            <h4>Начните с подборок на главной странице или найдите нужный товар через поиск</h4>
-        </div>
+        </section>
     </div>
 
     <script type="module" src="./script.ts"></script>

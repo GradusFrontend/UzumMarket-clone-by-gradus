@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uzum Market - Корзина</title>
+    <title>Uzum Market - Поиск</title>
     <link rel="stylesheet" href="/public/fonts/Gilroy/stylesheet.css">
     <link rel="stylesheet" href="./style.scss">
 </head>
+
 <body>
 
     <div class="backdrop hiden"></div>
@@ -158,10 +160,6 @@
     </div>
 
     <div class="mobile_tabs">
-        <div class="cart_sum">
-            <h3 class="mobile_order_total">1 650 000 сум</h3>
-            <button class="mobile_make_order_btn">Оформить</button>
-        </div>
         <div class="tabs">
             <a href="#" class="tab main_tab active_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
@@ -250,59 +248,180 @@
     </div>
 
     <div class="wrap">
-        <div class="cart_section">
-            <h1>Корзина товаров</h1>
+        <div class="filter-result">
+            <aside class="filters_aside" id="filters_aside">
+                <div class="filters_wrap">
+                    <form name="filter" id="filter_form">
+                        <div class="filter_range">
+                            <h3>Цена</h3>
+                            <div class="range_inputs">
+                                <input min="1" placeholder="от" type="number" name="filter_range_min"
+                                    id="filter_range_min">
+                                <input min="2" placeholder="до" type="number" name="filter_range_max"
+                                    id="filter_range_max">
+                            </div>
+                        </div>
 
-            <div class="cart_wrap">
-                <div class="cart">
-                    <div class="cart_item">
-                        <div class="cart_img_wrap">
-                            <img src="/public/images/test_moni-1300.jpg" alt="">
-                        </div>
-                        <div class="cart_item_info">
-                            <h3 class="cart_item_name">Cтиральный порошок Tide, Color Lenor Touch, автомат, 3 кг</h3>
-                            <h4 class="cart_item_price">40 400 сум</h4>
-                            <div class="cart_item_counter">
-                                <button class="decrease_btn">-</button>
-                                <span class="cart_item_count">1</span>
-                                <button class="increase_btn">+</button>
+                        <div class="filter_color">
+                            <h3>Цвет</h3>
+
+                            <div class="color_checkboxes">
+                                <div class="color_group">
+                                    <input type="checkbox" name="" id="color">
+                                    <label class="color_label" for="color">Red</label>
+                                </div>
+                                <div class="color_group">
+                                    <input type="checkbox" name="" id="color1">
+                                    <label class="color_label" for="color1">blue</label>
+                                </div>
+                                <div class="color_group">
+                                    <input type="checkbox" name="" id="color2">
+                                    <label class="color_label" for="color2">yellow</label>
+                                </div>
                             </div>
-                            <button class="cart_item_delete">Удалить</button>
                         </div>
-                    </div>
-                    <div class="cart_item">
-                        <div class="cart_img_wrap">
-                            <img src="/public/images/tesst-moni-600.jpg" alt="">
-                        </div>
-                        <div class="cart_item_info">
-                            <h3 class="cart_item_name">Cтиральный порошок Tide, Color Lenor Touch, автомат, 3 кг</h3>
-                            <h4 class="cart_item_price">40 400 сум</h4>
-                            <div class="cart_item_counter">
-                                <button class="decrease_btn">-</button>
-                                <span class="cart_item_count">1</span>
-                                <button class="increase_btn">+</button>
-                            </div>
-                            <button class="cart_item_delete">Удалить</button>
-                        </div>
-                    </div>
+
+                    </form>
                 </div>
+            </aside>
 
-                <div class="checkout_order">
-                    <h2 class="checkout_total_price">1 650 000 сум</h2>
-                    <h4 class="cart_length">Итого товаров: <span class="cart_length_span">3</span></h4>
-                    <h4 class="total_discount">Итого скидки: <span class="total_discount_span">250 000 сум</span></h4>
-                    <button class="checkout_order_btn">Оформить</button>
+            <div class="results_wrap">
+                <h2>Все для ПК</h2>
+                <a href="#filters_aside" class="to_filters">
+                    <button>Фильтры</button>
+                </a>
+
+                <div class="results">
+                    <div class="product_card">
+
+                        <a href="#">
+                            <img src="/public/images/tesst-moni-600.jpg" alt="" class="product_img">
+                        </a>
+
+                        <button class="product_like_btn">
+                            <img src="/public/icons/like-white.svg" alt="">
+                        </button>
+
+                        <div class="product_info">
+                            <a href="#" class="product_name">USB-Автомагнитола c встроенным монитором Pioneer
+                                DMH-G220BT</a>
+                            <a href="#" class="product_price">1 200 000 сум</a>
+
+                            <button class="add_cart_btn">
+                                <img src="/public/icons/add-to-cart.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product_card">
+
+                        <a href="#">
+                            <img src="/public/images/test_moni-1300.jpg" alt="" class="product_img">
+                        </a>
+
+                        <button class="product_like_btn">
+                            <img src="/public/icons/like-white.svg" alt="">
+                        </button>
+
+                        <div class="product_info">
+                            <a href="#" class="product_name">Asus ROG Strix Carry 8000dpi</a>
+                            <a href="#" class="product_price">1 200 000 сум</a>
+
+                            <button class="add_cart_btn">
+                                <img src="/public/icons/add-to-cart.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product_card">
+
+                        <a href="#">
+                            <img src="/public/images/tesst-moni-600.jpg" alt="" class="product_img">
+                        </a>
+
+                        <button class="product_like_btn">
+                            <img src="/public/icons/like-white.svg" alt="">
+                        </button>
+
+                        <div class="product_info">
+                            <a href="#" class="product_name">USB-Автомагнитола c встроенным монитором Pioneer
+                                DMH-G220BT</a>
+                            <a href="#" class="product_price">1 200 000 сум</a>
+
+                            <button class="add_cart_btn">
+                                <img src="/public/icons/add-to-cart.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product_card">
+
+                        <a href="#">
+                            <img src="/public/images/test_moni-1300.jpg" alt="" class="product_img">
+                        </a>
+
+                        <button class="product_like_btn">
+                            <img src="/public/icons/like-white.svg" alt="">
+                        </button>
+
+                        <div class="product_info">
+                            <a href="#" class="product_name">Asus ROG Strix Carry 8000dpi</a>
+                            <a href="#" class="product_price">1 200 000 сум</a>
+
+                            <button class="add_cart_btn">
+                                <img src="/public/icons/add-to-cart.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product_card">
+
+                        <a href="#">
+                            <img src="/public/images/tesst-moni-600.jpg" alt="" class="product_img">
+                        </a>
+
+                        <button class="product_like_btn">
+                            <img src="/public/icons/like-white.svg" alt="">
+                        </button>
+
+                        <div class="product_info">
+                            <a href="#" class="product_name">USB-Автомагнитола c встроенным монитором Pioneer
+                                DMH-G220BT</a>
+                            <a href="#" class="product_price">1 200 000 сум</a>
+
+                            <button class="add_cart_btn">
+                                <img src="/public/icons/add-to-cart.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product_card">
+
+                        <a href="#">
+                            <img src="/public/images/test_moni-1300.jpg" alt="" class="product_img">
+                        </a>
+
+                        <button class="product_like_btn">
+                            <img src="/public/icons/like-white.svg" alt="">
+                        </button>
+
+                        <div class="product_info">
+                            <a href="#" class="product_name">Asus ROG Strix Carry 8000dpi</a>
+                            <a href="#" class="product_price">1 200 000 сум</a>
+
+                            <button class="add_cart_btn">
+                                <img src="/public/icons/add-to-cart.svg" alt="">
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="empty_cart hiden">
-            <img src="/public/images/shopocat.png" alt="">
-            <h3>В корзине пока нет товаров</h3>
-            <h4>Начните с подборок на главной странице или найдите нужный товар через поиск</h4>
+            <div class="empty_results hiden">
+                <img src="/public/images/empty-penguin.png" alt="">
+                <h3>Мы не нашли то, что вы искали</h3>
+                <h4>Возможно, в названии товара ошибка или у нас пока нет такого товара</h4>
+            </div>
         </div>
     </div>
 
+
     <script type="module" src="./script.ts"></script>
 </body>
+
 </html>
