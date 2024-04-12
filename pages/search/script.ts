@@ -36,16 +36,3 @@ return_btn.onclick = () => {
     body.style.overflowY = 'visible'
 }
 
-// axios.get('http://localhost:8080/goods')
-//     .then(res => {
-//         console.log(res.data);
-
-//         console.log(res.data.filter(item => {
-//             if (item.title.toLowerCase().includes('sum'))
-//                 console.log(item);
-//         }))
-//     })
-
-    // let arr =[1,3,4,'4333']
-    // console.log(arr.includes('333'))
-
