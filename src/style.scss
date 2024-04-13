@@ -171,3 +171,14 @@ img {
     background-color: $magenta-text-color;
     color: #EAEAF9;
 }
+
+.signUp-signIn_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    border-radius: 10px;
+    border: 0;
+    background-color: #fff;
+    padding: 30px;
+}

@@ -27,7 +27,7 @@
             </div>
 
             <div class="header_action_btns">
-                <a href="#" class="action_btn profile_btn">
+                <a href="/pages/profile/" class="action_btn profile_btn">
                     <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -37,7 +37,7 @@
                     <h4 class="user_name">Gradus</h4>
                 </a>
 
-                <a href="#" class="action_btn wishes_btn">
+                <a href="/pages/wishes/" class="action_btn wishes_btn">
                     <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -48,7 +48,7 @@
                     <span class="action_btn_count wishes_count">4</span>
                 </a>
 
-                <a href="#" class="action_btn cart_btn">
+                <a href="/pages/cart/" class="action_btn cart_btn">
                     <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="black"
                         xmlns="http://www.w3.org/2000/svg" class="ui-icon  slightly transparent icon-cart">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1024,7 +1024,7 @@
 
     <div class="mobile_tabs">
         <div class="tabs">
-            <a href="#" class="tab main_tab active_tab">
+            <a href="/" class="tab main_tab active_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                     <g id="Icon">
@@ -1044,7 +1044,7 @@
                 <h3>Главная</h3>
             </a>
 
-            <a href="#" class="tab catalog_tab">
+            <a class="tab catalog_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                     <g id="Icon">
@@ -1067,7 +1067,7 @@
                 <h3>Каталог</h3>
             </a>
 
-            <a href="#" class="tab cart_tab">
+            <a href="/pages/cart/" class="tab cart_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                     <g id="Icon">
@@ -1079,7 +1079,7 @@
                 <h3>Корзина</h3>
             </a>
 
-            <a href="#" class="tab wishes_tab">
+            <a href="/pages/wishes/" class="tab wishes_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                     <g id="Icon">
@@ -1091,7 +1091,7 @@
                 <h3>Избранное</h3>
             </a>
 
-            <a href="#" class="tab profile_tab">
+            <a href="/pages/profile/" class="tab profile_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                     <g id="Icon">
@@ -1109,6 +1109,32 @@
             </a>
         </div>
     </div>
+
+    <dialog class="signUp-signIn_modal">
+        <div class="sign_wrap">
+            <div class="signUp_wrap">
+                <h2>Регистрация</h2>
+                <form name="signUp_form">
+                    <input placeholder="Имя" type="text" name="name">
+                    <input placeholder="Фамилия" type="text" name="surname">
+                    <input placeholder="Email" type="email" name="email">
+                    <input placeholder="Пороль" type="password" name="password">
+
+                    <button>Зарегестрироваться</button>
+                </form>
+            </div>
+
+            <div class="signIn_wrap">
+                <h2>Войти</h2>
+                <form name="signIn_form">
+                    <input placeholder="Email" type="email" name="email">
+                    <input placeholder="Пороль" type="password" name="password">
+
+                    <button>Войти</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 
     <script type="module" src="/src/main.ts"></script>
 </body>

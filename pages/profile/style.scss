@@ -37,7 +37,7 @@ img {
 }
 
 .hiden {
-    display: none;
+    display: none !important;
 }
 
 @keyframes fadeHeightOpen {
@@ -222,5 +222,24 @@ img {
                 }
             }
         }
+    }
+}
+
+.empty_orders {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    & h3 {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    & h4 {
+        font-size: 14px;
+        font-weight: 500;
     }
 }
