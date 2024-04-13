@@ -1,0 +1,85 @@
+@media (max-width: 1199.98px) {
+    // .wrap {
+    //     background-color: aqua;
+    // }
+
+    .header_action_btns {
+        gap: 0px !important;
+    }
+
+    .action_btn h4,
+    .action_btn span {
+        display: none;
+    }
+}
+
+@media (max-width: 959.98px) {
+    .header {
+        display: none;
+    }
+
+    .mobile_header {
+        display: flex;
+    }
+
+    .mobile_tabs {
+        display: block !important;
+    }
+
+    .order_item_info {
+        width: 90% !important;
+
+        .order_item_row {
+            width: auto !important;
+            // text-align: center !important;w
+
+            & h5 {
+                width: auto !important;
+            }
+        }
+    }
+
+    .order_row {
+        width: 100% !important;
+
+        & h5 {
+            width: auto !important;
+        }
+    }
+}
+
+@media (max-width: 539.98px) {
+    .tab {
+        & svg {
+            width: 25px !important;
+            height: 25px !important;
+        }
+
+        & h3 {
+            font-size: 12px !important;
+        }
+    }
+
+    .order_item_row {
+        & h5, & h4 {
+            font-size: 12px !important;
+        }
+    }
+
+    .order_row {
+        & h5, & h4 {
+            font-size: 12px !important;
+        }
+    }
+
+    .id_box {
+        & h3 {
+            font-size: 16px !important; 
+        }
+    }
+    .accord_title {
+        & h3 {
+            font-size: 14px !important; 
+        }
+    }
+}

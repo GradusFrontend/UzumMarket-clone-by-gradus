@@ -1,5 +1,6 @@
 @use '/src/style-modules/header.scss';
 @use '/src/style-modules/mobile-tabs.scss';
+@use '/src/media-modules/profile-media.scss';
 
 $magenta-text-color: #3333CC;
 
@@ -54,4 +55,172 @@ img {
     scale: 1.05;
     background-color: $magenta-text-color;
     color: #EAEAF9;
+}
+
+.user_section {
+    margin-top: 40px;
+
+    .user_title {
+        display: flex;
+        margin-bottom: 40px;
+        gap: 20px;
+
+        & h2 {
+            font-size: 26px;
+            color: rgb(38, 38, 38);
+        }
+
+        .changeUserDataBtn {
+            border: 0;
+            background-color: #EAEAF9;
+            font-size: 15px;
+            color: $magenta-text-color;
+            border-radius: 7px;
+            padding: 9px 15px;
+            transition: .3s ease;
+
+            &:hover {
+                scale: 1.05;
+                background-color: $magenta-text-color;
+                color: #EAEAF9;
+            }
+        }
+    }
+
+    .orders {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .order {
+            border: 1px solid rgba(54, 54, 64, .2);
+
+            .id_box {
+                border-bottom: 1px solid rgba(54, 54, 64, .2);
+                display: flex;
+                align-items: center;
+                padding-left: 20px;
+                padding-block: 13px;
+
+                & h3 {
+                    color: #1f2026;
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+
+            .order_info {
+                border-bottom: 1px solid rgba(54, 54, 64, .2);
+                padding-inline: 20px;
+                padding-block: 13px;
+                color: #1f2026;
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+
+                .order_row {
+                    width: 50%;
+                    display: flex;
+                    justify-content: space-between;
+
+                    & h4 {
+                        font-size: 14px;
+                        color: #595b66;
+                        font-weight: 500;
+                    }
+
+                    & h5 {
+                        width: 50%;
+                        text-align: left;
+                        font-size: 14px;
+                        color: #1f2026;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .order_accordeon {
+                .accord_title {
+                    border-bottom: 1px solid rgba(54, 54, 64, .2);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 7px 20px;
+
+                    & h3 {
+                        font-size: 16px;
+                        color: #1f2026;
+                    }
+
+                    & button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 5px;
+                        background: 0;
+                        border: 0;
+                        transition: .3s ease;
+
+                        & svg {
+                            scale: 1.3;
+                        }
+                    }
+                }
+
+                .accordeon {
+                    max-height: 100%;
+                    overflow: hidden;
+                    .order_item {
+                        display: flex;
+                        align-items: center;
+                        padding: 20px 25px;
+                        gap: 25px;
+                        border-bottom: 1px solid rgba(54, 54, 64, .2);
+
+
+                        .image_wrap {
+                            width: 80px;
+                            height: 80px;
+
+                            & img {
+                                object-fit: contain;
+                                object-position: center;
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+
+                        .order_item_info {
+                            width: 70%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
+
+                            .order_item_row {
+                                width: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                gap: 5px;
+
+                                & h4 {
+                                    font-size: 14px;
+                                    color: #595b66;
+                                    font-weight: 500;
+                                }
+
+                                & h5 {
+                                    width: 50%;
+                                    text-align: left;
+                                    font-size: 14px;
+                                    color: #1f2026;
+                                    font-weight: 500;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
