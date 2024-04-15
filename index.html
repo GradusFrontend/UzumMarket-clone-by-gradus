@@ -1111,27 +1111,32 @@
     </div>
 
     <dialog class="signUp-signIn_modal">
+        <button class="closeModalBtn">
+            <span>&Cross;</span>
+        </button>
         <div class="sign_wrap">
-            <div class="signUp_wrap">
+            <div class="signUp_wrap hiden">
                 <h2>Регистрация</h2>
                 <form name="signUp_form">
-                    <input placeholder="Имя" type="text" name="name">
-                    <input placeholder="Фамилия" type="text" name="surname">
-                    <input placeholder="Email" type="email" name="email">
-                    <input placeholder="Пороль" type="password" name="password">
+                    <input placeholder="Имя" required type="text" name="name">
+                    <input placeholder="Фамилия" required type="text" name="surname">
+                    <input placeholder="Email" required type="email" name="email">
+                    <input placeholder="Пороль" required type="password" name="password">
 
-                    <button>Зарегестрироваться</button>
+                    <button id="signUpSubmitBtn">Зарегестрироваться</button>
                 </form>
+                <center><button type="button" class="openSignInForm">Войти</button></center>
             </div>
 
             <div class="signIn_wrap">
                 <h2>Войти</h2>
                 <form name="signIn_form">
-                    <input placeholder="Email" type="email" name="email">
-                    <input placeholder="Пороль" type="password" name="password">
+                    <input placeholder="Email" required type="email" name="email">
+                    <input placeholder="Пороль" required type="password" name="password">
 
-                    <button>Войти</button>
+                    <button id="signInSubmitBtn">Войти</button>
                 </form>
+                <center><button type="button" class="openSignUpForm">Зарегестрироваться</button></center>
             </div>
         </div>
     </dialog>

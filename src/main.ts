@@ -1,13 +1,14 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 
+
 new Swiper('.swiper', {
 
     direction: 'horizontal',
     loop: true,
-    // autoplay: {
-    //     delay: 4000
-    // },
+    autoplay: {
+        delay: 4000
+    },
 
     pagination: {
         el: '.swiper-pagination',
@@ -68,6 +69,7 @@ return_btn.onclick = () => {
     body.style.height = '100%'
     body.style.overflowY = 'visible'
 }
-
-const signesModal = document.querySelector('.signUp-signIn_modal') as HTMLDialogElement
-signesModal.showModal()
+let user = JSON.parse(localStorage.getItem('user') || '[]')
+if(user.length === 0) {
+    user = null
+}
