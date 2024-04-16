@@ -27,7 +27,7 @@
             </div>
 
             <div class="header_action_btns">
-                <a href="/pages/profile/" class="action_btn profile_btn">
+                <a class="action_btn profile_btn">
                     <svg data-v-50d82c62="" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -1091,7 +1091,7 @@
                 <h3>Избранное</h3>
             </a>
 
-            <a href="/pages/profile/" class="tab profile_tab">
+            <a class="tab profile_tab">
                 <svg data-v-b2fd8610="" width="28" height="28" viewBox="0 0 29 28" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="ui-icon ">
                     <g id="Icon">
@@ -1110,7 +1110,7 @@
         </div>
     </div>
 
-    <dialog class="signUp-signIn_modal">
+    <dialog class="signUp-signIn_modal translateFade">
         <button class="closeModalBtn">
             <span>&Cross;</span>
         </button>
@@ -1121,7 +1121,7 @@
                     <input placeholder="Имя" required type="text" name="name">
                     <input placeholder="Фамилия" required type="text" name="surname">
                     <input placeholder="Email" required type="email" name="email">
-                    <input placeholder="Пороль" required type="password" name="password">
+                    <input placeholder="Пороль" minlength="4" required type="password" name="password">
 
                     <button id="signUpSubmitBtn">Зарегестрироваться</button>
                 </form>
@@ -1132,7 +1132,7 @@
                 <h2>Войти</h2>
                 <form name="signIn_form">
                     <input placeholder="Email" required type="email" name="email">
-                    <input placeholder="Пороль" required type="password" name="password">
+                    <input placeholder="Пороль" minlength="4" required type="password" name="password">
 
                     <button id="signInSubmitBtn">Войти</button>
                 </form>
@@ -1141,6 +1141,7 @@
         </div>
     </dialog>
 
+    <script type="module" src="/src/modules/LogIn.ts"></script>
     <script type="module" src="/src/main.ts"></script>
 </body>
 

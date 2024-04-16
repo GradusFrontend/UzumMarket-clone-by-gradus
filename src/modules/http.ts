@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { toaster } from './ui'
 
 export class MakeRequest {
     baseURL = import.meta.env.VITE_BASE_URL
@@ -8,10 +9,10 @@ export class MakeRequest {
             const res = await axios.get(this.baseURL + path)
 
             if(res.status === 200 || res.status === 201) {
-                return res.data
+                return res
             } 
         } catch(e:any) {
-            alert(e.message)
+            toaster(e.message, 'error')
             return e
         }
     }
@@ -20,10 +21,10 @@ export class MakeRequest {
             const res = await axios.post(this.baseURL + path, body)
 
             if(res.status === 200 || res.status === 201) {
-                return res.data
+                return res
             }
         } catch(e:any) {
-            alert(e.message)
+            toaster(e.message, 'error')
             return e
         }
     }
@@ -32,10 +33,10 @@ export class MakeRequest {
             const res = await axios.patch(this.baseURL + path, body)
 
             if(res.status === 200 || res.status === 201) {
-                return res.data
+                return res
             }
         } catch(e:any) {
-            alert(e.message)
+            toaster(e.message, 'error')
             return e
         }
     }
@@ -43,10 +44,10 @@ export class MakeRequest {
         try {
             const res = await axios.delete(this.baseURL + path)
             if(res.status === 200 || res.status === 201) {
-                return res.data
+                return res
             }
         } catch(e:any) {
-            alert(e.message)
+            toaster(e.message, 'error')
             return e
         }
     }
