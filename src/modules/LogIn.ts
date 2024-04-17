@@ -1,6 +1,6 @@
 import { MakeRequest } from "./http"
 import moment from 'moment';
-import { userType } from "./types";
+// import { userType } from "./types";
 import { toaster } from "./ui";
 
 const http = new MakeRequest()
@@ -81,5 +81,34 @@ signUp_form.onsubmit = (e) => {
                         location.reload()
                     }
                 })
+        })
+}
+
+signIn_form.onsubmit = (e) => {
+    e.preventDefault()
+
+    let fm = new FormData(signIn_form)
+    let user = {
+        email: fm.get('email'),
+        password: fm.get('password')
+    }
+
+    http.getData('/users?email=' + user.email)
+        .then(res => {
+            let [res_user] = res.data
+
+            if (!res_user) {
+                toaster('Такого пользователя не существует', 'error')
+                return
+            }
+            if (res_user.password !== user.password) {
+                toaster('Не верный пароль!', 'error')
+                return
+            }
+
+            delete res_user.password
+
+            localStorage.setItem("user", JSON.stringify(res_user))
+            location.reload()
         })
 }

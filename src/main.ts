@@ -1,7 +1,16 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
+import { MakeRequest } from './modules/http';
+import { reloadProducts, reloadMainSwiper } from './modules/ui';
+import { Product } from './modules/types';
 
 
+const http = new MakeRequest()
+
+let user = JSON.parse(localStorage.getItem('user') || '[]')
+if (user.length === 0) {
+    user = null
+}
 new Swiper('.swiper', {
 
     direction: 'horizontal',
@@ -69,7 +78,18 @@ return_btn.onclick = () => {
     body.style.height = '100%'
     body.style.overflowY = 'visible'
 }
-let user = JSON.parse(localStorage.getItem('user') || '[]')
-if(user.length === 0) {
-    user = null
-}
+
+let swiper_main_wrapper = document.querySelector('.swiper-wrapper') as HTMLDivElement
+let top_rated_grid = document.querySelector('.top_rated_grid') as HTMLDivElement
+console.log(swiper_main_wrapper);
+
+http.getData('/goods')
+    .then(res => {
+        let filtered: Array<Product> = []
+        res.data.filter((elem: Product) => {
+            if (elem.rating > 4.8) filtered.push(elem)
+        })
+        reloadMainSwiper({ arr: filtered, place: swiper_main_wrapper })
+        reloadProducts({arr: filtered.slice(0,10), place: top_rated_grid})
+
+    })
