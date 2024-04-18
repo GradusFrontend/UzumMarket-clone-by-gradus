@@ -48,23 +48,6 @@ export function reloadMainSwiper({ arr, place }: Reload) {
 
 export function reloadProducts({ arr, place }: Reload) {
   place.innerHTML = ''
-  let wishesIds: Array<number> = []
-  let cartIds: Array<number> = []
-
-  if (user) {
-    http.getData('/wishes?user_id=' + user.id)
-      .then((res: { data: { product_id: number; }[]; }) => {
-        res.data.forEach(async (prod: { product_id: number; }) => wishesIds.push(prod.product_id))
-      })
-    http.getData('/carts?user_id=' + user.id)
-      .then((res: { data: { product_id: number; }[]; }) => {
-        res.data.forEach((prod: { product_id: number; }) => cartIds.push(prod.product_id))
-      })
-
-    console.log(wishesIds);
-    console.log(cartIds);
-  }
-
   for (let item of arr) {
     const product = document.createElement('div')
     const imgWrap = document.createElement('a')
@@ -85,15 +68,25 @@ export function reloadProducts({ arr, place }: Reload) {
     prodPrice.classList.add('product_price')
     cartBtn.classList.add('add_cart_btn')
 
-    if (wishesIds.includes(item.id)) {
-      likeBtn.classList.add('liked')
-      likeImg.src = '/public/icons/like-purple.svg'
+    if (user) {
+      http.getData(`/wishes?user_id=${user.id}&product_id=${item.id}`)
+        .then((res: any) => {
+          if (res.data.length === 0) {
+            likeImg.src = '/public/icons/like-white.svg'
+          } else if (res.data.length === 1) {
+            likeBtn.classList.add('liked')
+            likeImg.src = '/public/icons/like-purple.svg'
+          }
+        })
+
+      http.getData(`/carts?user_id=${user.id}&product_id=${item.id}`)
+        .then((res: any) => {
+          if (res.data.length === 1) {
+            cartBtn.classList.add('inCart')
+          }
+        })
     } else {
       likeImg.src = '/public/icons/like-white.svg'
-    }
-
-    if (cartIds.includes(item.id)) {
-      cartBtn.classList.add('inCart')
     }
 
     imgWrap.href = `/pages/product/?id=${item.id}`
@@ -119,7 +112,6 @@ export function reloadProducts({ arr, place }: Reload) {
 
     likeBtn.onclick = () => {
       if (user) {
-
         if (!likeBtn.classList.contains('liked')) {
           http.postData('/wishes', {
             user_id: user.id,
@@ -130,20 +122,17 @@ export function reloadProducts({ arr, place }: Reload) {
               if (res.status === 200 || res.status === 201) {
                 likeBtn.classList.add('liked')
                 likeImg.src = '/public/icons/like-purple.svg'
-              } else {
-                toaster('Произошла ошибка!', 'error')
               }
             })
 
         } else {
-          http.deleteData(`/wishes?user_id=${user.id}&product_id=${item.id}`)
-            .then((res: { status: number; }) => {
-              if (res.status === 200 || res.status === 201) {
-                likeBtn.classList.remove('liked')
-                likeImg.src = '/public/icons/like-white.svg'
-              } else {
-                toaster('Произошла ошибка!', 'error')
-              }
+          http.getData(`/wishes?user_id=${user.id}&product_id=${item.id}`)
+            .then((res: any) => {
+              http.deleteData(`/wishes/${res.data[0].id}`)
+                .then(() => {
+                  likeBtn.classList.remove('liked')
+                  likeImg.src = '/public/icons/like-white.svg'
+                })
             })
         }
       } else {
@@ -163,10 +152,8 @@ export function reloadProducts({ arr, place }: Reload) {
           })
             .then((res: { status: number; }) => {
               if (res.status === 200 || res.status === 201) {
-                toaster('Добавлено!', 'massage')
                 cartBtn.classList.add('inCart')
-              } else {
-                toaster('Произошла ошибка!', 'error')
+                toaster('Добавлено!', 'massage')
               }
             })
         } else {

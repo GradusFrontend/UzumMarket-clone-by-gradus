@@ -44,7 +44,7 @@ export class MakeRequest {
         try {
             const res = await axios.delete(this.baseURL + path)
             if(res.status === 200 || res.status === 201) {
-                return res
+                return res.data
             }
         } catch(e:any) {
             toaster(e.message, 'error')

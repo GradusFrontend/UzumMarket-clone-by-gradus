@@ -3,6 +3,7 @@ import 'swiper/css/bundle';
 import { MakeRequest } from './modules/http';
 import { reloadProducts, reloadMainSwiper } from './modules/ui';
 import { Product } from './modules/types';
+import axios from 'axios';
 
 
 const http = new MakeRequest()
@@ -81,7 +82,6 @@ return_btn.onclick = () => {
 
 let swiper_main_wrapper = document.querySelector('.swiper-wrapper') as HTMLDivElement
 let top_rated_grid = document.querySelector('.top_rated_grid') as HTMLDivElement
-console.log(swiper_main_wrapper);
 
 http.getData('/goods')
     .then(res => {
@@ -90,6 +90,19 @@ http.getData('/goods')
             if (elem.rating > 4.8) filtered.push(elem)
         })
         reloadMainSwiper({ arr: filtered, place: swiper_main_wrapper })
-        reloadProducts({arr: filtered.slice(0,10), place: top_rated_grid})
+        reloadProducts({ arr: filtered.slice(0, 10), place: top_rated_grid })
 
     })
+
+
+
+
+// http.getData('/wishes?user_id=2222&product_id=1111')
+//     .then(res => {
+//         console.log(res);
+        
+//         http.deleteData("/wishes/")
+//             .then(res2 => {
+//                 console.log(res2);
+//             })
+//     })
