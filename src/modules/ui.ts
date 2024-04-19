@@ -165,3 +165,16 @@ export function reloadProducts({ arr, place }: Reload) {
     }
   }
 }
+
+export function reloadCatalog(arr: Array<any>, place: HTMLDivElement) {
+  place.innerHTML = ''
+
+  for (let item of arr) {
+    place.innerHTML += `
+    <a href="/pages/search/?category=${item}" class="category_link">
+      ${item}
+      <span>товаров 10</span>
+    </a>
+    `
+  }
+}

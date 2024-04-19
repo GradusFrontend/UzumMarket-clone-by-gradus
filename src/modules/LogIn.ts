@@ -79,15 +79,6 @@ signUp_form.onsubmit = (e) => {
                     if (res.status === 200 || res.status === 201) {
                         localStorage.setItem('user', JSON.stringify(res.data))
                         location.reload()
-
-                        // http.postData('/wishes', {
-                        //     user_id: res.data.id,
-                        //     products: []
-                        // })
-                        // http.postData('/carts', {
-                        //     user_id: res.data.id,
-                        //     products: []
-                        // })
                     }
                 })
         })

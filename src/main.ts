@@ -1,10 +1,10 @@
 import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 import { MakeRequest } from './modules/http';
+import '/src/modules/LogIn.ts'
+import '/src/modules/Header.ts'
 import { reloadProducts, reloadMainSwiper } from './modules/ui';
 import { Product } from './modules/types';
-import axios from 'axios';
-
 
 const http = new MakeRequest()
 
@@ -82,6 +82,9 @@ return_btn.onclick = () => {
 
 let swiper_main_wrapper = document.querySelector('.swiper-wrapper') as HTMLDivElement
 let top_rated_grid = document.querySelector('.top_rated_grid') as HTMLDivElement
+let for_pc_grid = document.querySelector('.for_pc_grid') as HTMLDivElement
+let furniture_grid = document.querySelector('.furniture_grid') as HTMLDivElement
+let audio_grid = document.querySelector('.audio_grid') as HTMLDivElement
 
 http.getData('/goods')
     .then(res => {
@@ -94,15 +97,15 @@ http.getData('/goods')
 
     })
 
-
-
-
-// http.getData('/wishes?user_id=2222&product_id=1111')
-//     .then(res => {
-//         console.log(res);
-        
-//         http.deleteData("/wishes/")
-//             .then(res2 => {
-//                 console.log(res2);
-//             })
-//     })
+http.getData('/goods?type=PC') 
+    .then(res => {        
+        reloadProducts({arr: res.data, place: for_pc_grid})
+    })
+http.getData('/goods?type=furniture') 
+    .then(res => {        
+        reloadProducts({arr: res.data, place: furniture_grid})
+    })
+http.getData('/goods?type=audio') 
+    .then(res => {        
+        reloadProducts({arr: res.data, place: audio_grid})
+    })

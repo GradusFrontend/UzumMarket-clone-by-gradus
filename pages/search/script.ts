@@ -1,4 +1,5 @@
-import axios from "axios"
+import '/src/modules/LogIn.ts'
+
 
 const body = document.body as HTMLBodyElement
 const openCatalogBtn = document.querySelector('.catalog_btn') as HTMLButtonElement
