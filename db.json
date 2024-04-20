@@ -1011,9 +1011,80 @@
       }
     },
     {
-      "id": "c7f3",
+      "id": "291c",
+      "user_id": "00a6",
+      "product_id": "5",
+      "product": {
+        "id": "5",
+        "title": "Кресло компьютерное игровое ThunderX3 TC3 Azure Blue",
+        "description": "В кресле ThunderX3 TC3 ты будешь чувствовать себя уверенно круглый год. Вспененный наполнитель Air Tech и перфорированная обивка из экокожи свободно пропускают воздух и отводят лишнюю влагу. Благодаря этому ты можешь сосредоточиться на игре даже в самые жаркие дни.",
+        "colors": [
+          "black",
+          "blue"
+        ],
+        "rating": 5,
+        "price": 16999,
+        "isBlackFriday": false,
+        "salePercentage": 0,
+        "media": [
+          "https://img.mvideo.ru/Big/50143056bb1.jpg"
+        ],
+        "type": "furniture"
+      }
+    },
+    {
+      "id": "8af7",
+      "user_id": "00a6",
+      "product_id": "15",
+      "product": {
+        "id": "15",
+        "title": "Видеокарта GIGABYTE RTX3090 GAMING OC-24G + монитор AORUS FV43U-EK",
+        "description": "Комплект, в состав которого входят видеокарта Gigabyte RTX3090 Gaming OC-24G и монитор Aorus FV43U-EK, создан для требовательного геймера.",
+        "colors": [
+          "black"
+        ],
+        "rating": 5,
+        "price": 269999,
+        "isBlackFriday": false,
+        "salePercentage": 0,
+        "media": [
+          "https://img.mvideo.ru/Big/30058010bb.jpg",
+          "https://img.mvideo.ru/Big/30058010bb1.jpg",
+          "https://img.mvideo.ru/Big/30058010bb2.jpg"
+        ],
+        "type": "PC"
+      }
+    },
+    {
+      "id": "4daf",
+      "user_id": "00a6",
+      "product_id": "16",
+      "product": {
+        "id": "16",
+        "title": "Видеокарта Palit RTX3080Ti GameRock 12GB",
+        "description": "Видеокарта Palit RTX3080Ti GameRock 12GB создана для требовательных геймеров, которые хотят получить новый игровой опыт. Она обеспечивает не только виртуальные приключения с максимальными настройками графики, но и стабильный стриминг, а также позволяет обрабатывать изображения на профессиональном уровне. БЕЗ ПАДЕНИЯ ПРОИЗВОДИТЕЛЬНОСТИ Литые рельефные пластины",
+        "colors": [
+          "black"
+        ],
+        "rating": 5,
+        "price": 219999,
+        "isBlackFriday": true,
+        "salePercentage": 12,
+        "media": [
+          "https://img.mvideo.ru/Big/30057855bb.jpg",
+          "https://img.mvideo.ru/Big/30057855bb5.jpg",
+          "https://img.mvideo.ru/Big/30057855bb4.jpg"
+        ],
+        "type": "PC"
+      }
+    }
+  ],
+  "carts": [
+    {
+      "id": "8119",
       "user_id": "00a6",
       "product_id": "12",
+      "count": 1,
       "product": {
         "id": "12",
         "title": "Системный блок игровой Raskat STRIKE 920 105611 (i9-12900F/32GB/2TB+2TB/RTX3090Ti/W10)",
@@ -1032,9 +1103,30 @@
         ],
         "type": "PC"
       }
+    },
+    {
+      "id": "3dce",
+      "user_id": "00a6",
+      "product_id": "16",
+      "count": 5,
+      "product": {
+        "id": "16",
+        "title": "Видеокарта Palit RTX3080Ti GameRock 12GB",
+        "description": "Видеокарта Palit RTX3080Ti GameRock 12GB создана для требовательных геймеров, которые хотят получить новый игровой опыт. Она обеспечивает не только виртуальные приключения с максимальными настройками графики, но и стабильный стриминг, а также позволяет обрабатывать изображения на профессиональном уровне. БЕЗ ПАДЕНИЯ ПРОИЗВОДИТЕЛЬНОСТИ Литые рельефные пластины",
+        "colors": [
+          "black"
+        ],
+        "rating": 5,
+        "price": 219999,
+        "isBlackFriday": true,
+        "salePercentage": 12,
+        "media": [
+          "https://img.mvideo.ru/Big/30057855bb.jpg",
+          "https://img.mvideo.ru/Big/30057855bb5.jpg",
+          "https://img.mvideo.ru/Big/30057855bb4.jpg"
+        ],
+        "type": "PC"
+      }
     }
-  ],
-  "carts": [
-  
   ]
 }

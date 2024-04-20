@@ -1,3 +1,4 @@
+import '/src/modules/Header.ts'
 import '/src/modules/LogIn.ts'
 
 const body = document.body as HTMLBodyElement

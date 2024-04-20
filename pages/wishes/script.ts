@@ -1,4 +1,6 @@
 import '/src/modules/LogIn.ts'
+import '/src/modules/Header.ts'
+
 
 const body = document.body as HTMLBodyElement
 const openCatalogBtn = document.querySelector('.catalog_btn') as HTMLButtonElement

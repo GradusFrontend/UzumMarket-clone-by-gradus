@@ -1,5 +1,4 @@
 import { Reload } from "./types";
-import { Product } from "./types"
 import { MakeRequest } from "./http";
 let http: any
 
@@ -38,7 +37,7 @@ export function reloadMainSwiper({ arr, place }: Reload) {
     <div class="swiper-slide">
     <a href="/pages/product/?id=${item.id}">
         <h1>${item.title}</h1>
-        <h3>${item.salePercentage ? (item.price - (item.price / 100 * item.salePercentage)).toFixed(2).toLocaleString() : item.price.toLocaleString('ru')} сум</h3>
+        <h3>${item.salePercentage ? (item.price - (item.price / 100 * item.salePercentage)).toFixed(0).toLocaleString() : item.price.toLocaleString('ru')} сум</h3>
         <p>${item.description}</p>
     </a>
     </div>
@@ -101,7 +100,7 @@ export function reloadProducts({ arr, place }: Reload) {
     cartImg.alt = 'Добавить в корзину'
 
     prodName.innerHTML = item.title
-    prodPrice.innerHTML = `${item.salePercentage ? (item.price - (item.price / 100 * item.salePercentage)).toFixed(2).toLocaleString() : item.price.toLocaleString('ru')} сум`
+    prodPrice.innerHTML = `${item.salePercentage ? (item.price - (item.price / 100 * item.salePercentage)).toFixed(0).toLocaleString() : item.price.toLocaleString('ru')} сум`
 
     place.append(product)
     product.append(imgWrap, likeBtn, prodInfo)
@@ -175,6 +174,43 @@ export function reloadCatalog(arr: Array<any>, place: HTMLDivElement) {
       ${item}
       <span>товаров 10</span>
     </a>
+    `
+  }
+}
+
+export function reloadProdResults({ arr, place }: Reload) {
+  place.innerHTML = ''
+
+  for (let item of arr) {
+    place.innerHTML += `
+    <a href="/pages/product/?id=${item.id}" class="product_res">
+      <img src="/public/icons/search_icon.svg" alt="">
+      <h4 class="prod_res_name">${item.title.length > 35 ? item.title.slice(0, 35) + '...' : item.title}</h4>
+    </a>
+    `
+  }
+}
+export function reloadCategResults({ arr, place }: Reload) {
+  place.innerHTML = ''
+
+  for (let item of arr) {
+    place.innerHTML += `
+    <a href="/pages/product/?id=${item.id}" class="product_res">
+      <img src="/public/icons/search_icon.svg" alt="">
+      <h4 class="prod_res_name">${item.title.length > 35 ? item.title.slice(0, 35) + '...' : item.title}</h4>
+    </a>
+    `
+  }
+}
+
+export function reloadSwiperImages(arr: Array<any>, place: HTMLDivElement) {
+  place.innerHTML = ''
+
+  for(let item of arr) {
+    place.innerHTML += `
+    <div class="swiper-slide">
+        <img src="${item}" alt="">
+    </div>
     `
   }
 }

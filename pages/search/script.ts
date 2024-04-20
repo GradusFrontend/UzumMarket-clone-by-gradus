@@ -1,4 +1,12 @@
+import { MakeRequest } from '../../src/modules/http.ts';
 import '/src/modules/LogIn.ts'
+import '/src/modules/Header.ts'
+import { reloadProducts } from '../../src/modules/ui.ts';
+import { Product } from '../../src/modules/types.ts';
+
+const http = new MakeRequest()
+
+const query: any = location.search
 
 
 const body = document.body as HTMLBodyElement
@@ -51,3 +59,92 @@ return_btn.onclick = () => {
     body.style.overflowY = 'visible'
 }
 
+const query_name_text = document.querySelector('.query_name_text') as any
+const results = document.querySelector('.results') as HTMLDivElement
+const results_wrap = document.querySelector('.results_wrap') as HTMLDivElement
+const empty_results = document.querySelector('.empty_results') as HTMLDivElement
+const filterForm = document.forms.namedItem('filter') as HTMLFormElement
+const form_colors = document.forms.namedItem('form_colors') as HTMLFormElement
+
+let query_sliced: any = query.split('=').at(-1)
+let filtered: Array<Product> = []
+
+if (query.startsWith('?category')) {
+    query_name_text.innerHTML = query_sliced
+
+    http.getData('/goods?type=' + query_sliced)
+        .then(res => {
+            reloadProducts({ arr: res.data, place: results })
+            filtered = res.data
+        })
+} else if (query.startsWith('?query')) {
+    query_name_text.innerHTML = 'Поиск: ' + query_sliced
+
+    http.getData('/goods?')
+        .then(res => {
+            filtered = res.data.filter((elem: Product) => elem.title.toLowerCase().includes(query_sliced.toLowerCase()))
+            reloadProducts({ arr: filtered, place: results })
+            if (filtered.length === 0) {
+                empty_results.classList.remove('hiden')
+                results_wrap.classList.add('hiden')
+            } else {
+                empty_results.classList.add('hiden')
+                results_wrap.classList.remove('hiden')
+            }
+        })
+}
+
+
+filterForm.onchange = () => {
+    if (filtered.length > 0) {
+        priceFilter()
+    }
+}
+
+
+
+form_colors.onchange = () => {
+    let colorsArr: any = []
+    let fm = new FormData(form_colors)
+
+    fm.forEach((val: any, key: any) => {
+        colorsArr.push(key)
+    })
+
+    let colorFiltered: Array<Product> = []
+    filtered.forEach((item: Product) => {   
+        colorsArr.forEach((color: any) => {
+            if(item.colors.includes(color)) {colorFiltered.push(item)}
+        })
+    })
+    reloadProducts({ arr: colorFiltered, place: results })
+    if (colorFiltered.length === 0) {
+        empty_results.classList.remove('hiden')
+        results_wrap.classList.add('hiden')
+    } else {
+        empty_results.classList.add('hiden')
+        results_wrap.classList.remove('hiden')
+    }
+}
+
+
+function priceFilter() {
+    let fm = new FormData(filterForm)
+    let filters: any = {
+        min: fm.get('filter_range_min'),
+        max: fm.get('filter_range_max'),
+    }
+
+    let { min, max } = filters
+
+    filtered = filtered.filter((elem: any) => (elem.salePercentage ? (elem.price - (elem.price / 100 * elem.salePercentage)) : elem.price) > +min && (elem.salePercentage ? (elem.price - (elem.price / 100 * elem.salePercentage)) : elem.price) < +max)
+
+    if (filtered.length === 0) {
+        empty_results.classList.remove('hiden')
+        results_wrap.classList.add('hiden')
+    } else {
+        empty_results.classList.add('hiden')
+        results_wrap.classList.remove('hiden')
+    }
+    reloadProducts({ arr: filtered, place: results })
+}

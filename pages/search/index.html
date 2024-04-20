@@ -136,25 +136,6 @@
 
                     </div>
                 </div>
-
-                <div class="category_results_wrap">
-                    <h3>Категории</h3>
-
-                    <div class="category_results">
-                        <a href="#" class="category_res">
-                            <img src="/public/icons/search_icon.svg" alt="">
-                            <h4 class="categ_res_name">Ivan Zolo 2004</h4>
-                        </a>
-                        <a href="#" class="category_res">
-                            <img src="/public/icons/search_icon.svg" alt="">
-                            <h4 class="categ_res_name">Ivan Zolo 2004</h4>
-                        </a>
-                        <a href="#" class="category_res">
-                            <img src="/public/icons/search_icon.svg" alt="">
-                            <h4 class="categ_res_name">Ivan Zolo 2004</h4>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -255,29 +236,65 @@
                         <div class="filter_range">
                             <h3>Цена</h3>
                             <div class="range_inputs">
-                                <input min="1" placeholder="от" type="number" name="filter_range_min"
+                                <input min="1" value="0" placeholder="от" type="number" name="filter_range_min"
                                     id="filter_range_min">
-                                <input min="2" placeholder="до" type="number" name="filter_range_max"
+                                <input min="2" value="1000000" placeholder="до" type="number" name="filter_range_max"
                                     id="filter_range_max">
                             </div>
                         </div>
 
+                    </form>
+                    <form name="form_colors">
+
                         <div class="filter_color">
                             <h3>Цвет</h3>
-
+    
                             <div class="color_checkboxes">
-                                <div class="color_group">
-                                    <input type="checkbox" name="" id="color">
-                                    <label class="color_label" for="color">Red</label>
-                                </div>
-                                <div class="color_group">
-                                    <input type="checkbox" name="" id="color1">
-                                    <label class="color_label" for="color1">blue</label>
-                                </div>
-                                <div class="color_group">
-                                    <input type="checkbox" name="" id="color2">
-                                    <label class="color_label" for="color2">yellow</label>
-                                </div>
+                                <label class="color_group">
+                                    <input type="checkbox" name="black">
+                                    <div class="checkmark"></div>
+                                    Черный
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="orange">
+                                    <div class="checkmark"></div>
+                                    Оранжевый
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="blue">
+                                    <div class="checkmark"></div>
+                                    Синий
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="green">
+                                    <div class="checkmark"></div>
+                                    Зеленый
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="red">
+                                    <div class="checkmark"></div>
+                                    Красный
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="grey">
+                                    <div class="checkmark"></div>
+                                    Серый
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="white">
+                                    <div class="checkmark"></div>
+                                    Белый
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="#D0D0D1FF">
+                                    <div class="checkmark"></div>
+                                    Светло серый
+                                </label>
+                                <label class="color_group">
+                                    <input type="checkbox" name="#915927FF">
+                                    <div class="checkmark"></div>
+                                    Коричневый
+                                </label>
                             </div>
                         </div>
                     </form>
@@ -285,7 +302,7 @@
             </aside>
 
             <div class="results_wrap">
-                <h2>Все для ПК</h2>
+                <h2 class="query_name_text">Все для ПК</h2>
                 <a href="#filters_aside" class="to_filters">
                     <button>Фильтры</button>
                 </a>
