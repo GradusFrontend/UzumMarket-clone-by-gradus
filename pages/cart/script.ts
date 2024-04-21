@@ -1,6 +1,16 @@
+import { MakeRequest } from '../../src/modules/http'
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
+import { reloadCart } from '../../src/modules/ui'
+import { Product } from '../../src/modules/types'
+import moment from 'moment';
 
+const http = new MakeRequest()
+
+let user = JSON.parse(localStorage.getItem('user') || '[]')
+if (user.length === 0) {
+    user = null
+}
 
 const body = document.body as HTMLBodyElement
 const openCatalogBtn = document.querySelector('.catalog_btn') as HTMLButtonElement
@@ -51,4 +61,61 @@ return_btn.onclick = () => {
     app_search_active_wrap.classList.add('hiden')
     body.style.height = '100%'
     body.style.overflowY = 'visible'
+}
+
+const cart_wrap = document.querySelector('.cart') as HTMLDivElement
+const make_order_btns = document.querySelectorAll('.make_order_btn') as NodeList
+const cart_section = document.querySelector('.cart_section') as HTMLDivElement
+const cart_sum = document.querySelector('.cart_sum') as HTMLDivElement
+const empty_cart = document.querySelector('.empty_cart') as HTMLDivElement
+
+if (user) {
+    http.getData('/carts?user_id=' + user.id)
+        .then((res: any) => {
+            if(res.data.length > 0) {
+                reloadCart(res.data, cart_wrap)
+            } else {
+                cart_section.classList.add('hiden')
+                cart_sum.classList.add('hiden')
+                empty_cart.classList.remove('hiden')
+            }
+        })
+
+    make_order_btns.forEach((btn: any) => {
+        btn.onclick = () => {
+            http.getData('/carts?user_id=' + user.id)
+                .then(res => {
+                    let totalPrice = 0
+                    let productsCount = res.data.length
+                    let products: Array<object> = []
+                    res.data.forEach((item: any) => {
+                        totalPrice += item.product.salePercentage ? ((item.product.price - (item.product.price / 100 * item.product.salePercentage)) * item.count) : item.product.price * item.count
+                        products.push({
+                            count: item.count,
+                            total_price: item.product.salePercentage ? Math.round((item.product.price - (item.product.price / 100 * item.product.salePercentage)) * item.count) : item.product.price * item.count,
+                            product: item.product
+                        })
+                    })
+                    totalPrice = Math.round(totalPrice)
+
+                    http.postData('/orders', {
+                        user_id: user.id,
+                        orderPrice: totalPrice,
+                        order_count: productsCount,
+                        order_date: moment().format('dddd, D MMM YYYY [г.] B HH:mm'),
+                        products: products
+                    })
+                        .then(res2 => {
+                            if (res2.status === 200 || res2.status === 201) {
+                                res.data.forEach((prod: any) => {
+                                    http.deleteData('/carts/' + prod.id)
+                                        .then(res => {
+                                            console.log(res);
+                                        })
+                                })
+                            }
+                        })
+                })
+        }
+    })
 }

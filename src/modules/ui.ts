@@ -206,11 +206,129 @@ export function reloadCategResults({ arr, place }: Reload) {
 export function reloadSwiperImages(arr: Array<any>, place: HTMLDivElement) {
   place.innerHTML = ''
 
-  for(let item of arr) {
+  for (let item of arr) {
     place.innerHTML += `
     <div class="swiper-slide">
         <img src="${item}" alt="">
     </div>
     `
+  }
+}
+
+export function reloadCart(arr: Array<any>, place: HTMLDivElement) {
+  place.innerHTML = ''
+
+  const checkout_total_price = document.querySelector('.checkout_total_price') as HTMLHeadingElement
+  const total_discount_span = document.querySelector('.total_discount_span') as HTMLSpanElement
+  const cart_length_span = document.querySelector('.cart_length_span') as any
+  const mobile_order_total = document.querySelector('.mobile_order_total') as HTMLHeadingElement
+
+  let totalDiscount = 0
+  let totalPrice = 0
+  let cart_length = 0
+
+  for (let item of arr) {
+    const cartItem = document.createElement('div')
+    const cart_img_wrap = document.createElement('a')
+    const cartImg = document.createElement('img')
+    const cart_item_info = document.createElement('div')
+    const cart_item_name = document.createElement('h3')
+    const cart_item_price = document.createElement('h4')
+    const cart_item_counter = document.createElement('div')
+    const decrease_btn = document.createElement('button')
+    const cart_item_count = document.createElement('span')
+    const increase_btn = document.createElement('button')
+    const cart_item_delete = document.createElement('button')
+
+    cartItem.classList.add('cart_item')
+    cart_img_wrap.classList.add('cart_img_wrap')
+    cart_item_info.classList.add('cart_item_info')
+    cart_item_name.classList.add('cart_item_name')
+    cart_item_price.classList.add('cart_item_price')
+    cart_item_counter.classList.add('cart_item_counter')
+    decrease_btn.classList.add('decrease_btn')
+    cart_item_count.classList.add('cart_item_count')
+    increase_btn.classList.add('increase_btn')
+    cart_item_delete.classList.add('cart_item_delete')
+
+    cartImg.src = item.product.media[0]
+    cartImg.alt = item.product.title
+    cart_img_wrap.href = '/pages/product/?id=' + item.product_id
+
+    cart_item_name.innerHTML = item.product.title
+    cart_item_price.innerHTML = `${item.product.salePercentage ? Number(((item.product.price - (item.product.price / 100 * item.product.salePercentage)) * item.count).toFixed()).toLocaleString() : Number(((item.product.price * item.count).toFixed()))} сум`
+    decrease_btn.innerHTML = '-'
+    increase_btn.innerHTML = '+'
+    cart_item_count.innerHTML = item.count
+    cart_item_delete.innerHTML = 'Удалить'
+
+    place.append(cartItem)
+    cartItem.append(cart_img_wrap, cart_item_info)
+    cart_img_wrap.append(cartImg)
+    cart_item_info.append(cart_item_name, cart_item_price, cart_item_counter, cart_item_delete)
+    cart_item_counter.append(decrease_btn, cart_item_count, increase_btn)
+
+    // funcs
+
+    totalDiscount += item.product.salePercentage ? (item.product.price / 100 * item.product.salePercentage) * item.count : 0
+    totalPrice += item.product.salePercentage ? (item.product.price - (item.product.price / 100 * item.product.salePercentage)) * item.count : item.product.price * item.count
+    cart_length = arr.length
+
+    cart_length_span.innerHTML = cart_length
+    checkout_total_price.innerHTML = Number(totalPrice.toFixed()).toLocaleString() + ' сум'
+    mobile_order_total.innerHTML = Number(totalPrice.toFixed()).toLocaleString() + ' сум'
+    total_discount_span.innerHTML = Number(totalDiscount.toFixed()).toLocaleString() + ' сум'
+
+    cart_item_delete.onclick = () => {
+      http.deleteData('/carts/' + item.id)
+      cartItem.remove()
+
+      totalPrice = totalPrice - (item.product.salePercentage ? (item.product.price - (item.product.price / 100 * item.product.salePercentage)) : item.product.price)
+      totalDiscount = totalDiscount - (item.product.salePercentage ? (item.product.price / 100 * item.product.salePercentage) : 0)
+      cart_length--
+      cart_length_span.innerHTML = cart_length
+
+      checkout_total_price.innerHTML = Number(totalPrice.toFixed()).toLocaleString() + ' сум'
+      mobile_order_total.innerHTML = Number(totalPrice.toFixed()).toLocaleString() + ' сум'
+      total_discount_span.innerHTML = Number(totalDiscount.toFixed()).toLocaleString() + ' сум'
+    }
+    // counter
+
+    let count = item.count
+
+    decrease_btn.onclick = () => {
+      if (count > 1) {
+        count--
+        cart_item_count.innerHTML = count
+
+        totalDiscount -= item.product.salePercentage ? (item.product.price / 100 * item.product.salePercentage) : 0
+        totalPrice -= item.product.salePercentage ? (item.product.price - (item.product.price / 100 * item.product.salePercentage)) : item.product.price
+
+        setPriceAndPatch()
+      }
+    }
+
+
+    increase_btn.onclick = () => {
+      if (count < 100) {
+        count++
+        cart_item_count.innerHTML = count
+
+        totalDiscount += item.product.salePercentage ? (item.product.price / 100 * item.product.salePercentage) : 0
+        totalPrice += item.product.salePercentage ? (item.product.price - (item.product.price / 100 * item.product.salePercentage)) : item.product.price
+
+        setPriceAndPatch()
+      }
+    }
+
+
+    function setPriceAndPatch() {
+      checkout_total_price.innerHTML = Number(totalPrice.toFixed()).toLocaleString() + ' сум'
+      mobile_order_total.innerHTML = Number(totalPrice.toFixed()).toLocaleString() + ' сум'
+      total_discount_span.innerHTML = Number(totalDiscount.toFixed()).toLocaleString() + ' сум'
+      cart_item_price.innerHTML = `${item.product.salePercentage ? Number(((item.product.price - (item.product.price / 100 * item.product.salePercentage)) * count).toFixed()).toLocaleString() : Number(((item.product.price * count).toFixed()))} сум`
+
+      http.patchData('/carts/' + item.id, { count: count })
+    }
   }
 }
