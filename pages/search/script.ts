@@ -1,6 +1,6 @@
-import { MakeRequest } from '../../src/modules/http.ts';
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
+import { MakeRequest } from '../../src/modules/http.ts';
 import { reloadProducts } from '../../src/modules/ui.ts';
 import { Product } from '../../src/modules/types.ts';
 

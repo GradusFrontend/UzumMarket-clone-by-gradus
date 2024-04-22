@@ -61,7 +61,7 @@ img {
 
 
 .cart_section {
-    margin-top: 55px;
+    margin-block: 55px;
 
     & h1 {
         font-size: 32px;
@@ -92,6 +92,7 @@ img {
                     display: block;
                     height: 120px;
                     width: 120px;
+                    min-width: 60px;
                     margin-right: 25px;
 
                     & img {
@@ -108,6 +109,7 @@ img {
                     gap: 10px;
 
                     .cart_item_name {
+                        overflow-x: hidden;
                         font-size: 20px;
                         font-weight: 500;
                     }
@@ -182,12 +184,18 @@ img {
             }
 
             .checkout_order_btn {
+                transition: .3s ease;
                 border-radius: 4px;
                 border: 0;
                 background-color: #7000FF;
                 padding-block: 10px;
                 width: 100%;
                 color: #fff;
+            }
+
+            .checkout_order_btn:hover {
+                opacity: 0.8;
+                scale: 1.05;
             }
         }
     }

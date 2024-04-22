@@ -1,6 +1,6 @@
 $magenta-text-color: #3333CC;
 
-.signUp-signIn_modal {
+.editUserModal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -11,7 +11,7 @@ $magenta-text-color: #3333CC;
     padding: 40px 55px 20px 55px;
     z-index: 90;
 
-    .closeModalBtn {
+    .closeEditModalBtn {
         position: absolute;
         top: 5px;
         right: 10px;
