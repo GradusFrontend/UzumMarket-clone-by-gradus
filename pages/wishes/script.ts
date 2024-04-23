@@ -1,5 +1,15 @@
+import { MakeRequest } from '../../src/modules/http'
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
+import { reloadProducts } from '../../src/modules/ui'
+import { Product } from '../../src/modules/types'
+
+const http = new MakeRequest()
+
+let user = JSON.parse(localStorage.getItem('user') || '[]')
+if (user.length === 0) {
+    user = null
+}
 
 
 const body = document.body as HTMLBodyElement
@@ -50,4 +60,23 @@ return_btn.onclick = () => {
     app_search_active_wrap.classList.add('hiden')
     body.style.height = '100%'
     body.style.overflowY = 'visible'
+}
+
+const wishes_wrap = document.querySelector('.wishes') as HTMLDivElement
+const empty_orders = document.querySelector('.empty_orders') as HTMLDivElement
+const wishes_section = document.querySelector('.wishes_wrap') as any
+
+if (user) {
+    http.getData('/wishes?user_id=' + user.id)
+        .then((res: any) => {
+            if (res.data.length > 0) {
+                empty_orders.classList.add('hiden')
+                wishes_section.classList.remove('hiden')
+                let wishesArr: Array<Product> = []
+                res.data.forEach((elem: any) => wishesArr.push(elem.product))
+                reloadProducts({ arr: wishesArr, place: wishes_wrap })
+            } else {
+                empty_orders.classList.remove('hiden')
+            }
+        })
 }

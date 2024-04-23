@@ -229,6 +229,7 @@ img {
 }
 
 .empty_cart {
+    text-align: center;
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -244,5 +245,71 @@ img {
     & h4 {
         font-size: 14px;
         font-weight: 500;
+    }
+}
+
+.st0 {
+    fill: #2bb65c;
+}
+
+.st1 {
+    fill: none;
+    stroke: #FFFFFF;
+    stroke-width: 30;
+    stroke-miterlimit: 10;
+}
+
+.order_accept_modal {
+    position: fixed;
+    z-index: 99;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    inset: 0;
+    
+    .accept_wrap {
+        padding-inline: 20px;
+        position: absolute;
+        top: 25%;
+        max-width: 600px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .check_mark {
+            width: 35px;
+            margin: 0 auto;
+        }
+
+        & h2 {
+            font-size: 29px;
+        }
+
+        & p {
+            font-size: 18px;
+        }
+    }
+
+    .lets_buy_btn {
+        position: absolute;
+        left: 15px;
+        right: 15px;
+        bottom: 35%;
+
+        margin:  0 auto;
+        width: fit-content;
+        padding-block: 10px;
+        border-radius: 4px;
+        border: 0;
+        background-color: #7000FF;
+        padding-block: 10px;
+        padding-inline: 25px;
+        color: #fff;
+        transition: .3s ease;
+    }
+
+    .lets_buy_btn:hover {
+        scale: 1.05;
     }
 }

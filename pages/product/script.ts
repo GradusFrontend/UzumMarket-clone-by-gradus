@@ -97,7 +97,7 @@ http.getData('/goods/' + prodId)
     .then(res => {
         reloadSwiperImages(res.data.media, swiper_wrapper)
         product_title.innerHTML = res.data.title
-        product_price_total.innerHTML = `${res.data.salePercentage ? (res.data.price - (res.data.price / 100 * res.data.salePercentage)).toFixed(2).toLocaleString() : res.data.price.toLocaleString('ru')} сум`
+        product_price_total.innerHTML = `${res.data.salePercentage ? Number((res.data.price - (res.data.price / 100 * res.data.salePercentage)).toFixed()).toLocaleString() : res.data.price.toLocaleString('ru')} сум`
         if (res.data.salePercentage) {
             product_price_first.classList.remove('hiden')
             product_price_first.innerHTML = res.data.price.toLocaleString() + ' сум'
@@ -107,35 +107,37 @@ http.getData('/goods/' + prodId)
 
         let count: any = 1
         decrease.onclick = () => {
-            if(count > 1) {
+            if (count > 1) {
                 count--
                 count_view.innerHTML = count
             }
         }
 
         increase.onclick = () => {
-            if(count < 100) {
+            if (count < 100) {
                 count++
                 count_view.innerHTML = count
-            } 
+            }
         }
 
-        http.getData(`/wishes?user_id=${user.id}&product_id=${res.data.id}`)
-            .then((res: any) => {
-                if (res.data.length === 1) {
-                    add_to_wishes_btn.classList.add('liked')
-                    add_to_wishes_btn.innerHTML = 'Удалить с избранного'
-                } else if (res.data.length === 0) {
-                    add_to_wishes_btn.innerHTML = 'Добавить в избранное'
-                }
-            })
+        if (user) {
+            http.getData(`/wishes?user_id=${user.id}&product_id=${res.data.id}`)
+                .then((res: any) => {
+                    if (res.data.length === 1) {
+                        add_to_wishes_btn.classList.add('liked')
+                        add_to_wishes_btn.innerHTML = 'Удалить с избранного'
+                    } else if (res.data.length === 0) {
+                        add_to_wishes_btn.innerHTML = 'Добавить в избранное'
+                    }
+                })
 
-        http.getData(`/carts?user_id=${user.id}&product_id=${res.data.id}`)
-            .then((res: any) => {
-                if (res.data.length === 1) {
-                    add_to_cart_btn.classList.add('inCart')
-                }
-            })
+            http.getData(`/carts?user_id=${user.id}&product_id=${res.data.id}`)
+                .then((res: any) => {
+                    if (res.data.length === 1) {
+                        add_to_cart_btn.classList.add('inCart')
+                    }
+                })
+        }
 
         add_to_wishes_btn.onclick = () => {
             if (user) {
@@ -162,6 +164,7 @@ http.getData('/goods/' + prodId)
                                 })
                         })
                 }
+
             } else {
                 toaster('Войдите в аккаунт!', 'error')
             }
@@ -169,28 +172,28 @@ http.getData('/goods/' + prodId)
 
         add_to_cart_btn.onclick = () => {
             if (user) {
-      
-              if (!add_to_cart_btn.classList.contains('inCart')) {
-                http.postData('/carts', {
-                  user_id: user.id,
-                  product_id: res.data.id,
-                  count: count,
-                  product: res.data
-                })
-                  .then((res: { status: number; }) => {
-                    if (res.status === 200 || res.status === 201) {
-                      add_to_cart_btn.classList.add('inCart')
-                      toaster('Добавлено!', 'massage')
-                    }
-                  })
-              } else {
-                toaster('Уже в корзине!', 'error')
-              }
-            } else {
-              toaster('Войдите в аккаунт!', 'error')
-            }
-          }
 
-          http.getData('/goods?type=' + res.data.type)
-            .then(res => reloadProducts({arr: res.data, place: similar_wrap}))
+                if (!add_to_cart_btn.classList.contains('inCart')) {
+                    http.postData('/carts', {
+                        user_id: user.id,
+                        product_id: res.data.id,
+                        count: count,
+                        product: res.data
+                    })
+                        .then((res: { status: number; }) => {
+                            if (res.status === 200 || res.status === 201) {
+                                add_to_cart_btn.classList.add('inCart')
+                                toaster('Добавлено!', 'massage')
+                            }
+                        })
+                } else {
+                    toaster('Уже в корзине!', 'error')
+                }
+            } else {
+                toaster('Войдите в аккаунт!', 'error')
+            }
+        }
+
+        http.getData('/goods?type=' + res.data.type)
+            .then(res => reloadProducts({ arr: res.data, place: similar_wrap }))
     })

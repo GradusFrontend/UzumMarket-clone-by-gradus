@@ -1,5 +1,6 @@
 import '/src/modules/Header.ts'
 import '/src/modules/LogIn.ts'
+import moment from 'moment';
 import { MakeRequest } from '../../src/modules/http.ts';
 import { reloadOrders } from '../../src/modules/ui.ts';
 
@@ -10,7 +11,7 @@ if (user.length === 0) {
     user = null
 }
 
-if(!user) {
+if (!user) {
     location.assign('/')
 }
 
@@ -39,7 +40,9 @@ const appSearchInp = document.querySelector('#app_query') as HTMLInputElement
 const app_search_active_wrap = document.querySelector('.search_active_wrap') as HTMLDivElement
 const return_btn = document.querySelector('.return') as HTMLButtonElement
 const catalog_tab = document.querySelector('.catalog_tab') as HTMLLinkElement
+const user_name_title_view = document.querySelector('.user_name_title_view') as HTMLHeadingElement
 
+user_name_title_view.innerHTML = user.name
 
 appSearchInp.onfocus = () => {
     return_btn.classList.remove('hiden')
@@ -65,18 +68,21 @@ return_btn.onclick = () => {
 }
 
 const orders_wrap = document.querySelector('.orders') as HTMLDivElement
-const user_section = document.querySelector('.user_section') as any
 const empty_orders = document.querySelector('.empty_orders') as HTMLDivElement
 
-http.getData('/orders?user_id' + user.id)
-    .then((res: any) => {
-        if(res.data.length > 0) {
-            reloadOrders(res.data, orders_wrap)
-        } else {
-            user_section.classList.add('hiden')
-            empty_orders.classList.remove('hiden')
-        }
-    })
+if (user) {
+    http.getData('/orders?user_id=' + user.id)
+        .then((res: any) => {
+            if (res.data.length > 0) {
+                orders_wrap.classList.remove('hiden')
+                empty_orders.classList.add('hiden')
+                reloadOrders(res.data, orders_wrap)
+            } else {
+                orders_wrap.classList.add('hiden')
+                empty_orders.classList.remove('hiden')
+            }
+        })
+}
 
 const editUserModal = document.querySelector('.editUserModal') as HTMLDialogElement
 const closeEditModalBtn = document.querySelector('.closeEditModalBtn') as HTMLButtonElement
@@ -87,6 +93,7 @@ const name_inp = edit_user_form.querySelector('#editName') as HTMLInputElement
 const surname_inp = edit_user_form.querySelector('#editSurname') as HTMLInputElement
 const email_inp = edit_user_form.querySelector('#editEmail') as HTMLInputElement
 const password_inp = edit_user_form.querySelector('#editPassword') as HTMLInputElement
+const logOutBtn = document.querySelector('.logOutBtn') as HTMLButtonElement
 
 changeUserDataBtn.onclick = () => editUserModal.showModal()
 
@@ -99,7 +106,34 @@ closeEditModalBtn.onclick = () => {
     }, 900)
 }
 
+logOutBtn.onclick = () => {
+    console.log('ddd');
+
+    localStorage.removeItem('user')
+    location.reload()
+}
+
+
 name_inp.value = user.name
 surname_inp.value = user.surname
 email_inp.value = user.email
+
+edit_user_form.onsubmit = (e) => {
+    e.preventDefault()
+
+    let editedUser: any = {
+        updated_at: moment().format('dddd, D MMM YYYY [г.] B HH:mm'),
+    }
+    let fm = new FormData(edit_user_form)
+
+    fm.forEach((val: any, key: any) => {
+        if (val !== '') {
+            editedUser[key] = val
+        }
+    })
+
+    http.patchData('/users/' + user.id, editedUser)
+    localStorage.removeItem('user')
+    location.reload()
+}
 

@@ -100,7 +100,7 @@ export function reloadProducts({ arr, place }: Reload) {
         cartImg.alt = 'Добавить в корзину'
 
         prodName.innerHTML = item.title
-        prodPrice.innerHTML = `${item.salePercentage ? (item.price - (item.price / 100 * item.salePercentage)).toFixed(0).toLocaleString() : item.price.toLocaleString('ru')} сум`
+        prodPrice.innerHTML = `${item.salePercentage ? Number((item.price - (item.price / 100 * item.salePercentage)).toFixed()).toLocaleString() : item.price.toLocaleString('ru')} сум`
 
         place.append(product)
         product.append(imgWrap, likeBtn, prodInfo)
@@ -283,8 +283,8 @@ export function reloadCart(arr: Array<any>, place: HTMLDivElement) {
             http.deleteData('/carts/' + item.id)
             cartItem.remove()
 
-            totalPrice = totalPrice - (item.product.salePercentage ? (item.product.price - (item.product.price / 100 * item.product.salePercentage)) : item.product.price)
-            totalDiscount = totalDiscount - (item.product.salePercentage ? (item.product.price / 100 * item.product.salePercentage) : 0)
+            totalPrice = totalPrice - (item.product.salePercentage ? (item.product.price - (item.product.price / 100 * item.product.salePercentage)) * count : item.product.price * count)
+            totalDiscount = totalDiscount - (item.product.salePercentage ? (item.product.price / 100 * item.product.salePercentage) * count : 0)
             cart_length--
             cart_length_span.innerHTML = cart_length
 

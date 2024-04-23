@@ -12,23 +12,7 @@ let user = JSON.parse(localStorage.getItem('user') || '[]')
 if (user.length === 0) {
     user = null
 }
-new Swiper('.swiper', {
 
-    direction: 'horizontal',
-    loop: true,
-    autoplay: {
-        delay: 4000
-    },
-
-    pagination: {
-        el: '.swiper-pagination',
-    },
-
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-});
 
 const body = document.body as HTMLBodyElement
 const openCatalogBtn = document.querySelector('.catalog_btn') as HTMLButtonElement
@@ -95,17 +79,35 @@ http.getData('/goods')
         reloadMainSwiper({ arr: filtered, place: swiper_main_wrapper })
         reloadProducts({ arr: filtered.slice(0, 10), place: top_rated_grid })
 
+        new Swiper('.swiper', {
+
+            direction: 'horizontal',
+            loop: true,
+            autoplay: {
+                delay: 4000
+            },
+        
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
     })
 
-http.getData('/goods?type=PC') 
-    .then(res => {        
-        reloadProducts({arr: res.data, place: for_pc_grid})
+http.getData('/goods?type=PC')
+    .then(res => {
+        reloadProducts({ arr: res.data, place: for_pc_grid })
     })
-http.getData('/goods?type=furniture') 
-    .then(res => {        
-        reloadProducts({arr: res.data, place: furniture_grid})
+http.getData('/goods?type=furniture')
+    .then(res => {
+        reloadProducts({ arr: res.data, place: furniture_grid })
     })
-http.getData('/goods?type=audio') 
-    .then(res => {        
-        reloadProducts({arr: res.data, place: audio_grid})
+http.getData('/goods?type=audio')
+    .then(res => {
+        reloadProducts({ arr: res.data, place: audio_grid })
     })
+

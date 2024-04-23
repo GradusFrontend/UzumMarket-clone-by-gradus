@@ -68,11 +68,15 @@ const make_order_btns = document.querySelectorAll('.make_order_btn') as NodeList
 const cart_section = document.querySelector('.cart_section') as HTMLDivElement
 const cart_sum = document.querySelector('.cart_sum') as HTMLDivElement
 const empty_cart = document.querySelector('.empty_cart') as HTMLDivElement
+const order_accept_modal = document.querySelector('.order_accept_modal') as HTMLDivElement
 
 if (user) {
     http.getData('/carts?user_id=' + user.id)
         .then((res: any) => {
-            if(res.data.length > 0) {
+            if (res.data.length > 0) {
+                cart_section.classList.remove('hiden')
+                cart_sum.classList.remove('hiden')
+                empty_cart.classList.add('hiden')
                 reloadCart(res.data, cart_wrap)
             } else {
                 cart_section.classList.add('hiden')
@@ -110,7 +114,7 @@ if (user) {
                                 res.data.forEach((prod: any) => {
                                     http.deleteData('/carts/' + prod.id)
                                         .then(res => {
-                                            console.log(res);
+                                            order_accept_modal.classList.remove('hiden')
                                         })
                                 })
                             }
@@ -118,4 +122,8 @@ if (user) {
                 })
         }
     })
+} else {
+    cart_section.classList.add('hiden')
+    cart_sum.classList.add('hiden')
+    empty_cart.classList.remove('hiden')
 }

@@ -56,6 +56,30 @@
             }
         }
     }
+
+    .order_accept_modal {
+        .accept_wrap {
+            top: 35% !important;
+
+            .check_mark {
+                width: 30px !important;
+            }
+    
+            & h2 {
+                font-size: 26px !important;
+            }
+    
+            & p {
+                font-size: 16px !important;
+            }
+        }
+    
+        .lets_buy_btn {
+            padding-block: 8px !important;
+            bottom: 20px !important;
+            width: auto !important;
+        }
+    }
 }
 
 @media (max-width: 419.98px) {

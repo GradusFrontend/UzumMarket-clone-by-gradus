@@ -137,14 +137,15 @@ function priceFilter() {
 
     let { min, max } = filters
 
-    filtered = filtered.filter((elem: any) => (elem.salePercentage ? (elem.price - (elem.price / 100 * elem.salePercentage)) : elem.price) > +min && (elem.salePercentage ? (elem.price - (elem.price / 100 * elem.salePercentage)) : elem.price) < +max)
+    let priceFiltered: Array<Product> = []
+    priceFiltered = filtered.filter((elem: any) => (elem.salePercentage ? (elem.price - (elem.price / 100 * elem.salePercentage)) : elem.price) > +min && (elem.salePercentage ? (elem.price - (elem.price / 100 * elem.salePercentage)) : elem.price) < +max)
 
-    if (filtered.length === 0) {
+    if (priceFiltered.length === 0) {
         empty_results.classList.remove('hiden')
         results_wrap.classList.add('hiden')
     } else {
         empty_results.classList.add('hiden')
         results_wrap.classList.remove('hiden')
     }
-    reloadProducts({ arr: filtered, place: results })
+    reloadProducts({ arr: priceFiltered, place: results })
 }
