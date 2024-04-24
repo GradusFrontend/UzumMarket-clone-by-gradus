@@ -1,7 +1,7 @@
 import { MakeRequest } from '../../src/modules/http'
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
-import { reloadProducts } from '../../src/modules/ui'
+import { reloadProducts, setPage } from '../../src/modules/ui'
 import { Product } from '../../src/modules/types'
 
 const http = new MakeRequest()
@@ -61,6 +61,8 @@ return_btn.onclick = () => {
     body.style.height = '100%'
     body.style.overflowY = 'visible'
 }
+
+setPage()
 
 const wishes_wrap = document.querySelector('.wishes') as HTMLDivElement
 const empty_orders = document.querySelector('.empty_orders') as HTMLDivElement

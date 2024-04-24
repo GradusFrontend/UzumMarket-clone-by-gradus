@@ -1,7 +1,7 @@
 import { MakeRequest } from '../../src/modules/http'
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
-import { reloadCart } from '../../src/modules/ui'
+import { reloadCart, setPage } from '../../src/modules/ui'
 import { Product } from '../../src/modules/types'
 import moment from 'moment';
 
@@ -62,6 +62,8 @@ return_btn.onclick = () => {
     body.style.height = '100%'
     body.style.overflowY = 'visible'
 }
+
+setPage()
 
 const cart_wrap = document.querySelector('.cart') as HTMLDivElement
 const make_order_btns = document.querySelectorAll('.make_order_btn') as NodeList

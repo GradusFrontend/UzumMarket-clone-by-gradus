@@ -3,7 +3,7 @@ import 'swiper/css/bundle';
 import { MakeRequest } from '../../src/modules/http';
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
-import { reloadProducts, reloadSwiperImages, toaster } from '../../src/modules/ui';
+import { reloadProducts, reloadSwiperImages, setPage, toaster } from '../../src/modules/ui';
 
 const http = new MakeRequest()
 
@@ -79,6 +79,8 @@ new Swiper('.product_swiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
+setPage()
 
 const swiper_wrapper = document.querySelector('.swiper-wrapper') as HTMLDivElement
 const product_title = document.querySelector('.product_title') as HTMLHeadingElement

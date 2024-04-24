@@ -420,3 +420,21 @@ export function reloadOrders(arr: Array<any>, place: HTMLDivElement) {
         }
     }
 }
+export function setPage() {
+    const main_tab = document.querySelector('.main_tab') as HTMLAnchorElement
+    const cart_tab = document.querySelector('.cart_tab') as HTMLAnchorElement
+    const wishes_tab = document.querySelector('.wishes_tab') as HTMLAnchorElement
+    const profile_tab = document.querySelector('.profile_tab') as HTMLAnchorElement
+
+    let pages: any = {
+        "/": main_tab,
+        "cart": cart_tab,
+        "wishes": wishes_tab,
+        "profile": profile_tab
+    }
+
+    let page = location.pathname.split('/')[2]
+    page = page ? page : "/"
+
+    pages[page].classList.add('active_tab')
+}

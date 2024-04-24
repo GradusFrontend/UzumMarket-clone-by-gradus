@@ -2,7 +2,7 @@ import '/src/modules/Header.ts'
 import '/src/modules/LogIn.ts'
 import moment from 'moment';
 import { MakeRequest } from '../../src/modules/http.ts';
-import { reloadOrders } from '../../src/modules/ui.ts';
+import { reloadOrders, setPage } from '../../src/modules/ui.ts';
 
 const http = new MakeRequest()
 
@@ -66,6 +66,8 @@ return_btn.onclick = () => {
     body.style.height = '100%'
     body.style.overflowY = 'visible'
 }
+
+setPage()
 
 const orders_wrap = document.querySelector('.orders') as HTMLDivElement
 const empty_orders = document.querySelector('.empty_orders') as HTMLDivElement

@@ -3,7 +3,7 @@ import 'swiper/css/bundle';
 import { MakeRequest } from './modules/http';
 import '/src/modules/LogIn.ts'
 import '/src/modules/Header.ts'
-import { reloadProducts, reloadMainSwiper } from './modules/ui';
+import { reloadProducts, reloadMainSwiper, setPage } from './modules/ui';
 import { Product } from './modules/types';
 
 const http = new MakeRequest()
@@ -97,6 +97,8 @@ http.getData('/goods')
             },
         });
     })
+
+    setPage()
 
 http.getData('/goods?type=PC')
     .then(res => {
