@@ -433,8 +433,12 @@ export function setPage() {
         "profile": profile_tab
     }
 
+    console.log(location.pathname);
+    
     let page = location.pathname.split('/')[2]
     page = page ? page : "/"
 
-    pages[page].classList.add('active_tab')
+    if(location.pathname !== '/pages/product/') {
+        pages[page].classList.add('active_tab')
+    }
 }

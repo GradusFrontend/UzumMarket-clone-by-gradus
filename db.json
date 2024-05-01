@@ -944,15 +944,182 @@
     }
   ],
   "users": [
-   
+    {
+      "id": "bfb3",
+      "created_at": "Wednesday, 1 May 2024 г. B 23:10",
+      "updated_at": "Wednesday, 1 May 2024 г. B 23:10",
+      "name": "gradus",
+      "surname": "asasd",
+      "email": "ruslandjavadov998@gmail.com",
+      "password": "1234"
+    }
   ],
-  "wishes": [
-   
-  ],
+  "wishes": [],
   "carts": [
-   
+    {
+      "id": "181e",
+      "user_id": "bfb3",
+      "product_id": "5",
+      "count": 1,
+      "product": {
+        "id": "5",
+        "title": "Кресло компьютерное игровое ThunderX3 TC3 Azure Blue",
+        "description": "В кресле ThunderX3 TC3 ты будешь чувствовать себя уверенно круглый год. Вспененный наполнитель Air Tech и перфорированная обивка из экокожи свободно пропускают воздух и отводят лишнюю влагу. Благодаря этому ты можешь сосредоточиться на игре даже в самые жаркие дни.",
+        "colors": [
+          "black",
+          "blue"
+        ],
+        "rating": 5,
+        "price": 16999,
+        "isBlackFriday": false,
+        "salePercentage": 0,
+        "media": [
+          "https://img.mvideo.ru/Big/50143056bb1.jpg"
+        ],
+        "type": "furniture"
+      }
+    },
+    {
+      "id": "87a9",
+      "user_id": "bfb3",
+      "product_id": "12",
+      "count": 1,
+      "product": {
+        "id": "12",
+        "title": "Системный блок игровой Raskat STRIKE 920 105611 (i9-12900F/32GB/2TB+2TB/RTX3090Ti/W10)",
+        "description": "Системный блок Raskat Strike 920 на операционной системе Windows 10 основан на материнской плате, совместимой с процессором Intel Core i9 12900F с рабочей тактовой частотой 2,4 ГГц. Дискретная видеокарта GeForce RTX 3090Ti с объемом памяти GDDR6Х 24 Гб открывает доступ к требовательным играм и графическим приложениям, оперативная память Ram 32 Гб, накопители SSD объемом 2 Тб и HDD емкостью 2 Тб",
+        "colors": [
+          "black"
+        ],
+        "rating": 5,
+        "price": 359999,
+        "isBlackFriday": true,
+        "salePercentage": 10,
+        "media": [
+          "https://img.mvideo.ru/Big/30065113bb.jpg",
+          "https://img.mvideo.ru/Big/30065113bb1.jpg",
+          "https://img.mvideo.ru/Big/30065113bb2.jpg"
+        ],
+        "type": "PC"
+      }
+    },
+    {
+      "id": "51a9",
+      "user_id": "bfb3",
+      "product_id": "15",
+      "count": 1,
+      "product": {
+        "id": "15",
+        "title": "Видеокарта GIGABYTE RTX3090 GAMING OC-24G + монитор AORUS FV43U-EK",
+        "description": "Комплект, в состав которого входят видеокарта Gigabyte RTX3090 Gaming OC-24G и монитор Aorus FV43U-EK, создан для требовательного геймера.",
+        "colors": [
+          "black"
+        ],
+        "rating": 5,
+        "price": 269999,
+        "isBlackFriday": false,
+        "salePercentage": 0,
+        "media": [
+          "https://img.mvideo.ru/Big/30058010bb.jpg",
+          "https://img.mvideo.ru/Big/30058010bb1.jpg",
+          "https://img.mvideo.ru/Big/30058010bb2.jpg"
+        ],
+        "type": "PC"
+      }
+    },
+    {
+      "id": "6094",
+      "user_id": "bfb3",
+      "product_id": "14",
+      "count": 1,
+      "product": {
+        "id": "14",
+        "title": "Системный блок игровой Raskat STRIKE720 105608 (i7-12700F/32G/1T+2T/3080TI/W10)",
+        "description": "Системный блок Raskat Strike 720 на операционной системе Windows 10 основан на материнской плате, совместимой с процессором Intel Core i7 12700F с рабочей тактовой частотой 2,1 ГГц. Дискретная видеокарта GeForce RTX 3080TI с объемом памяти GDDR6Х 8 Гб открывает доступ к требовательным играм и графическим приложениям, оперативная память Ram 32 Гб, накопители SSD объемом 1 Тб и HDD емкостью 2 Тб",
+        "colors": [
+          "black"
+        ],
+        "rating": 5,
+        "price": 212999,
+        "isBlackFriday": false,
+        "salePercentage": 0,
+        "media": [
+          "https://img.mvideo.ru/Big/30065111bb.jpg",
+          "https://img.mvideo.ru/Big/30065111bb1.jpg",
+          "https://img.mvideo.ru/Big/30065111bb2.jpg"
+        ],
+        "type": "PC"
+      }
+    },
+    {
+      "id": "8f00",
+      "user_id": "bfb3",
+      "product_id": "18",
+      "count": 1,
+      "product": {
+        "id": "18",
+        "title": "Монитор игровой Samsung Odyssey G5 (LS27AG502NIXCI)",
+        "description": "Монитор игровой Samsung Odyssey G5 работает на базе IPS-матрицы с частотой обновления 165 Гц и откликом пикселя 1 мс. Он дополнен динамической контрастностью Mega Infinity DCR. Его яркость — 350 кд/м². Такая конфигурация обеспечивает детализированное изображение с плавной анимацией. Габариты — 57,1 х 61,4 х 24,7 см. Экран диагональю 27\" транслирует с разрешением 2560 x 1440 пикс.",
+        "colors": [
+          "blue"
+        ],
+        "rating": 5,
+        "price": 4999,
+        "isBlackFriday": true,
+        "salePercentage": 15,
+        "media": [
+          "https://img.mvideo.ru/Big/30063814bb.jpg",
+          "https://img.mvideo.ru/Big/30063814bb1.jpg",
+          "https://img.mvideo.ru/Big/30063814bb2.jpg"
+        ],
+        "type": "PC"
+      }
+    },
+    {
+      "id": "5a23",
+      "user_id": "bfb3",
+      "product_id": "21",
+      "count": 1,
+      "product": {
+        "id": "21",
+        "title": "Игровой микрофон для компьютера Blue Yeti Nano Shadow Grey (988-000205)",
+        "description": "Для качественных трансляций в стриминговых сервисах наличия компьютера и горячего желания недостаточно. Микрофон Blue Yeti Nano позволит проводить стримы, записывать ролики и подкасты с отменным звуком.",
+        "colors": [
+          "grey"
+        ],
+        "rating": 5,
+        "price": 9999,
+        "isBlackFriday": false,
+        "salePercentage": 0,
+        "media": [
+          "https://img.mvideo.ru/Big/50159382bb.jpg"
+        ],
+        "type": "audio"
+      }
+    },
+    {
+      "id": "475c",
+      "user_id": "bfb3",
+      "product_id": "23",
+      "count": 1,
+      "product": {
+        "id": "23",
+        "title": "Полочные колонки KEF Q150 Black (пара)",
+        "description": "Полочные колонки KEF Q150 оснащены оригинальными динамиками Uni-Q, в которых твитеры расположены точно в центре низкочастотного излучателя. В сочетании с оптимизированной формой волновода это позволяет получить настоящий трёхмерный звук, равномерно заполняющий большое помещение.",
+        "colors": [
+          "black"
+        ],
+        "rating": 5.8,
+        "price": 36199,
+        "isBlackFriday": false,
+        "salePercentage": 30,
+        "media": [
+          "https://img.mvideo.ru/Big/10019053bb.jpg",
+          "https://img.mvideo.ru/Big/10019053bb1.jpg"
+        ],
+        "type": "audio"
+      }
+    }
   ],
-  "orders": [
-   
-  ]
+  "orders": []
 }
