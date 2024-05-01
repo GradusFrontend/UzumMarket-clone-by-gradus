@@ -52,6 +52,7 @@ appSearchInp.onfocus = () => {
 }
 
 catalog_tab.onclick = () => {
+    window.scrollTo(0, 0);
     catalog_tab.classList.add('active_tab')
     return_btn.classList.remove('hiden')
     app_search_active_wrap.classList.remove('hiden')
